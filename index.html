@@ -27,10 +27,12 @@
 <body>
     <!-- NavBar -->
     <nav class="nav-wrapper light-green darken-1">
+
         <div class="container">
 
-            <a href="#!" class="brand-logo"><i class="material-icons left">shopping_basket</i>Meal Planner</a>
-            <a href="#" class="sidenav-trigger right" data-target="mobile-links">
+            <a href="#!" class="brand-logo"><i class="material-icons left">shopping_basket</i><span
+                    class="hide-on-med-and-down">Meal Planner</span></a>
+            <a href="#!" class="sidenav-trigger right" data-target="mobile-links">
                 <i class="material-icons">menu</i>
             </a>
 
@@ -38,18 +40,18 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Favorites</a></li>
                 <li><a href="#">Calendar</a></li>
-                <li><a href="#login" class="modal-trigger valign-wrapper">Login<i
-                            class="material-icons right">person</i></a>
+                <li><a href="#login" id="navbar-login-top" class="modal-trigger valign-wrapper">Login
+                        <i class="material-icons right">person</i></a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-links">
+    <ul class="sidenav light-green darken-1 grey-text" id="mobile-links">
         <li><a href="#">Home</a></li>
         <li><a href="#">Favorites</a></li>
         <li><a href="#">Calendar</a></li>
-        <li><a href="#login" class="modal-trigger">Login</a></li>
+        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger">Login</a></li>
     </ul>
 
     <!-- Modal -->
@@ -57,13 +59,13 @@
         <div class="modal-content">
             <i class="material-icons modal-close right">close</i>
 
-            <input id="text" type="text" class="validate">
+            <input id="user-name" type="text" class="validate">
             <label for="user_name">User Name</label>
             <input id="password" type="password" class="validate">
             <label for="password">Password</label>
         </div>
         <div class="modal-footer">
-            <a href="#" class="modal-close btn light-green">Sign In</a>
+            <a href="#!" id="sign-in-btn" class="modal-close btn light-green">Sign In</a>
 
         </div>
     </div>
@@ -78,7 +80,7 @@
                     <input id="food-item" type="text">
                     <label for="food-item">Enter Ingredient Here</label>
 
-                    <button id="search" class="btn right light-green">Search<i
+                    <button id="search-btn" class="btn right light-green">Search<i
                             class="material-icons right">search</i></button>
 
                     <p>
@@ -107,17 +109,17 @@
             <!-- List of meals -->
             <div class="col s12 m6">
                 <h3>Recipes</h3>
-                <div class="collection">
-                    <a href="#!" class="collection-item">Rice Pilaff</a>
-                    <a href="#!" class="collection-item">Fried Chicken</a>
-                    <a href="#!" class="collection-item">Spaghetti</a>
-                    <a href="#!" class="collection-item">Lasagna</a>
-                    <a href="#!" class="collection-item">Turkey Sandwich</a>
-                    <a href="#!" class="collection-item">Chicken Salad</a>
-                    <a href="#!" class="collection-item">Pot Roast</a>
-                    <a href="#!" class="collection-item">Eggs and Bacon</a>
-                    <a href="#!" class="collection-item">Toast</a>
-                    <a href="#!" class="collection-item">Hot Dogs</a>
+                <div class="collection text-green">
+                    <a href="#!" class="listed-food-recipe collection-item">Rice Pilaff</a>
+                    <a href="#!" class="listed-food-recipe collection-item">Fried Chicken</a>
+                    <a href="#!" class="listed-food-recipe collection-item">Spaghetti</a>
+                    <a href="#!" class="listed-food-recipe collection-item">Lasagna</a>
+                    <a href="#!" class="listed-food-recipe collection-item">Turkey Sandwich</a>
+                    <a href="#!" class="listed-food-recipe collection-item">Chicken Salad</a>
+                    <a href="#!" class="listed-food-recipe collection-item">Pot Roast</a>
+                    <a href="#!" class="listed-food-recipe collection-item">Eggs and Bacon</a>
+                    <a href="#!" class="listed-food-recipe collection-item">Toast</a>
+                    <a href="#!" class="listed-food-recipe collection-item">Hot Dogs</a>
                 </div>
             </div>
             <!-- End Meal List -->
@@ -127,21 +129,23 @@
 
                 <div class="card">
                     <div class="card-image">
-                        <img src="./assets/images/spiced-jasmine-rice-pilaf.jpg" alt="">
-                        <a href="" class="btn-floating grey pulse halfway-fab">
+                        <img class="food-image" src="./assets/images/spiced-jasmine-rice-pilaf.jpg" alt="">
+                        <a href="#!" class="favorite-btn btn-floating grey pulse halfway-fab" data-faved="false">
                             <i class="material-icons">favorite</i>
                         </a>
                     </div>
                     <div class="card-content">
 
-                        <span class="card-title">Rice Pilaff</span>
-                        <p>I think this should be the summary. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        <span class="food-title card-title">Rice Pilaff</span>
+                        <p class="food-summary">I think this should be the summary. Lorem ipsum dolor sit amet
+                            consectetur, adipisicing elit.
                             Esse dolore dolores, porro debitis officia repellendus iste reiciendis et dignissimos,
                             numquam vitae nisi architecto quis quidem quas illo error voluptas voluptate?</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">Ingredients</a>
-                        <a href="#">Instructions</a>
+
+                        <a href="#!" class="ingredients-btn">Ingredients</a>
+                        <a href="#!" class="instructions-btn">Instructions</a>
                     </div>
                 </div>
 
@@ -154,6 +158,8 @@
     <!-- All of our Scripts -->
     <script src="./assets//javascript/script.js"></script>
     <script src="./assets//javascript/navbarLogic.js"></script>
+    <script src="./assets//javascript/recipeCardLogic.js"></script>
+
 </body>
 
 </html>
