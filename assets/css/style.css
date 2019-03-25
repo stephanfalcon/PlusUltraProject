@@ -1,3 +1,12 @@
 .modal {
     width: 400px;
 }
+
+#logo {
+    height: 40px;
+    margin: 10px;
+}
+
+nav {
+    height: 60px;
+}
