@@ -91,7 +91,7 @@
 
         <!-- Search Bar-->
         <div class="col section">
-            <form action="">
+            <form id="search-bar" action="">
                 <div class="input-field">
                     <input id="food-item" type="text">
                     <label for="food-item">Enter Ingredient Here</label>
@@ -125,7 +125,7 @@
             <!-- List of meals -->
             <div id="recipe-list" class="col s12 m12 l6">
                 <h3>Recipes</h3>
-                <div class="collection text-green">
+                <div id="recipe-area" class="collection text-green">
                     <a href="#!" class="listed-food-recipe collection-item">Rice Pilaff</a>
                     <a href="#!" class="listed-food-recipe collection-item">Fried Chicken</a>
                     <a href="#!" class="listed-food-recipe collection-item">Spaghetti</a>
@@ -145,7 +145,7 @@
 
                 <div class="card">
                     <div class="card-image">
-                        <img class="food-image" src="./assets/images/spiced-jasmine-rice-pilaf.jpg" alt="">
+                        <img id="recipe-image" class="food-image" src="./assets/images/spiced-jasmine-rice-pilaf.jpg" alt="">
                         <a href="#!" class="favorite-btn btn-floating grey pulse halfway-fab" data-faved="false">
                             <i class="material-icons">favorite</i>
                         </a>
@@ -194,7 +194,7 @@
     </div>
 
     <!-- All of our Scripts -->
-    <script src="./assets//javascript/script.js"></script>
+    <script src="./assets/javascript/script.js"></script>
     <script src="./assets//javascript/navbarLogic.js"></script>
     <script src="./assets//javascript/recipeCardLogic.js"></script>
 
