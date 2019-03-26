@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Leckerli+One|Permanent+Marker|Rock+Salt|Sedgwick+Ave+Display');
+
+/* font-family: 'Sedgwick Ave Display',
+cursive;
+font-family: 'Leckerli One',
+cursive;
+font-family: 'Rock Salt',
+cursive;
+font-family: 'Permanent Marker',
+cursive; */
+
+.modal {
+    width: 400px;
+}
+
+#logo {
+    height: 40px;
+    margin: 10px;
+}
+
+nav {
+    height: 60px;
+}
+
+.parallax-container {
+    height: 300px;
+}
+
+.font1 {
+    font-family: 'Sedgwick Ave Display',
+        cursive;
+}
+
+.font2 {
+    font-family: 'Leckerli One',
+        cursive;
+}
+
+.font3 {
+    font-family: 'Rock Salt',
+        cursive;
+}
+
+.font4 {
+    font-family: 'Permanent Marker',
+        cursive;
+}
