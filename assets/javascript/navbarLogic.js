@@ -15,11 +15,17 @@ $(document).ready(function () {
             $("#navbar-login-top").html(username + '<i class="material-icons right">perm_identity</i>');
             $("#navbar-login-side").html(username);
 
+            $("#user-name").val("");
+            $("#password").val("");
+
         } else {
             console.log("need more info")
 
         }
     })
+
+
+    $('.parallax').parallax();
 
 
 

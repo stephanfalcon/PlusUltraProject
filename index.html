@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Food Prep</title>
+    <title>Meal Planner</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/images/spiced-jasmine-rice-pilaf.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/images/green-logo.png" type="image/x-icon">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -31,8 +31,8 @@
 
         <div class="container">
 
-            <a href="#!" class="brand-logo"><i class="material-icons left">shopping_basket</i><span
-                    class="hide-on-med-and-down">Meal Planner</span></a>
+            <a href="#" class="brand-logo"><img src="assets/images/white-logo.png" id="logo"
+                    class="left valign-wrapper"><span class="hide-on-med-and-down">Meal Planner</span></a>
             <a href="#!" class="sidenav-trigger right" data-target="mobile-links">
                 <i class="material-icons">menu</i>
             </a>
@@ -66,11 +66,26 @@
             <label for="password">Password</label>
         </div>
         <div class="modal-footer">
-            <a href="#!" id="sign-in-btn" class="modal-close btn light-green">Sign In</a>
+            <a href="#!" id="sign-in-btn" class="modal-close btn light-green waves-effect waves-light">Sign In</a>
 
         </div>
     </div>
+    <br>
     <!-- End NavBar -->
+
+
+    <div class="parallax-container center valign-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 white-text">
+                    <h2 class="white-text font3">Eat Healthy, Live Healthy</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="parallax"><img src="./assets/images/veggies-wallpaper.jpeg"></div>
+
+    </div>
 
     <div class="container">
 
@@ -81,7 +96,7 @@
                     <input id="food-item" type="text">
                     <label for="food-item">Enter Ingredient Here</label>
 
-                    <button id="search-btn" class="btn right light-green">Search<i
+                    <button id="search-btn" class="btn right light-green waves-effect waves-light">Search<i
                             class="material-icons right">search</i></button>
 
                     <p>
@@ -108,7 +123,7 @@
         <div class="row">
 
             <!-- List of meals -->
-            <div id="recipe-list" class="col s12 m6">
+            <div id="recipe-list" class="col s12 m12 l6">
                 <h3>Recipes</h3>
                 <div id="recipe-area" class="collection text-green">
                     <a href="#!" class="listed-food-recipe collection-item">Rice Pilaff</a>
@@ -144,7 +159,7 @@
                             numquam vitae nisi architecto quis quidem quas illo error voluptas voluptate?</p>
 
                         <div class="food-ingredients hide" data-state="hidden">
-                            <h5 class="light-green-text">Ingredients</h5>
+                            <h6 class="card-title light-green-text">Ingredients</h6>
                             <!-- Could not style through separate style sheet -->
                             <p style="padding:5px 0 5px 0;">ingredient</p>
                             <p style="padding:5px 0 5px 0;">ingredient</p>
@@ -154,7 +169,7 @@
                         </div>
                         <div class="food-instructions hide" data-state="hidden">
                             <div class="food-instructions">
-                                <h5 class="light-green-text">Instructions</h5>
+                                <h6 class="card-title light-green-text">Instructions</h6>
                                 <!-- Could not style through separate style sheet -->
                                 <p style="padding:5px 0 5px 0;">Lorem ipsum dolor, sit amet consectetur adipisicing
                                     elit. Maxime amet, libero vitae ipsum accusantium minima voluptate ut, temporibus
