@@ -2,14 +2,15 @@ $(document).ready(function () {
 
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyD-gfXOisqgvlaXUH9SCnSjTvh5Ab8QRQY",
-        authDomain: "my-awesome-app-thing.firebaseapp.com",
-        databaseURL: "https://my-awesome-app-thing.firebaseio.com",
-        projectId: "my-awesome-app-thing",
-        storageBucket: "my-awesome-app-thing.appspot.com",
-        messagingSenderId: "784955336009"
+        apiKey: "AIzaSyBP2bIcOJ5msjtfLLVspEVYsWoFt7DbK7k",
+        authDomain: "my-food-calendar.firebaseapp.com",
+        databaseURL: "https://my-food-calendar.firebaseio.com",
+        projectId: "my-food-calendar",
+        storageBucket: "my-food-calendar.appspot.com",
+        messagingSenderId: "352501120418"
     };
     firebase.initializeApp(config);
+
     var database = firebase.database();
 
     $("#favorite-cards").html("");
