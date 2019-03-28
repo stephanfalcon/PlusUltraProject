@@ -9,9 +9,6 @@ cursive;
 font-family: 'Permanent Marker',
 cursive; */
 
-.modal {
-    width: 400px;
-}
 
 #logo {
     height: 40px;
@@ -44,6 +41,7 @@ nav {
 .font4 {
     font-family: 'Permanent Marker',
         cursive;
+    font-size: 150%;
 }
 
 .spacer {

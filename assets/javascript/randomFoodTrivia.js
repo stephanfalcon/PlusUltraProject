@@ -12,7 +12,7 @@ $(document).ready(function () {
         }
     }).done(function (response) {
         console.log(response);
-        var trivia = $("#randomFoodTrivia").text(response.text);
+        var trivia = $("#randomFoodTrivia").text('"' + response.text + '"');
     });
 
 });

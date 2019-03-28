@@ -51,11 +51,12 @@
         </div>
     </nav>
 
-    <ul class="sidenav light-green darken-1 grey-text" id="mobile-links">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./favorites.html">Favorites</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger">Login</a></li>
+    <ul class="sidenav light-green darken-1" id="mobile-links">
+        <li><a href="./index.html" class="white-text">Home</a></li>
+        <li><a href="./favorites.html" class="white-text">Favorites</a></li>
+        <li><a href="#" class="white-text">Calendar</a></li>
+        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger white-text">Login</a>
+        </li>
     </ul>
 
     <!-- Modal -->
@@ -64,7 +65,7 @@
             <i class="material-icons modal-close right">close</i>
 
             <input id="user-name" type="text" class="validate">
-            <label for="user_name">User Name</label>
+            <label for="user-name">User Name</label>
             <input id="password" type="password" class="validate">
             <label for="password">Password</label>
         </div>
@@ -130,42 +131,44 @@
             <div class="xtra-info">
                 <div class=" col s8ths s1 box-side"><b>Breakfast</b></div>
             </div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
+            <div id="b-sun" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="b-mon" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="b-tue" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="b-wed" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="b-thu" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="b-fri" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="b-sat" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
         </div>
         <div class="meal-row row light-green lighten-4">
             <div class="xtra-info">
                 <div class=" col s8ths s1 box-side"><b>Lunch</b></div>
             </div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
+            <div id="l-sun" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="l-mon" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="l-tue" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="l-wed" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="l-thu" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="l-fri" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="l-sat" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
         </div>
         <div class="meal-row row light-green lighten-5">
             <div class="xtra-info">
                 <div class=" col s8ths s1 box-side"><b>Dinner</b></div>
             </div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
-            <div class="col s8ths s1 box"></div>
+            <div id="d-sun" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="d-mon" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="d-tue" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="d-wed" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="d-thu" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="d-fri" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            <div id="d-sat" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
         </div>
-        <!-- <a id="searchFavs" class="waves-effect waves-light btn-small red right section">Search Favorites</a> -->
-        <div id="recipe-list" class="col s12 m12 l6">
+
+        <a id="searchFavs" class="waves-effect waves-light btn orange right section">Edit Meal Plan</a>
+
+        <div id="recipe-list" class="col s12 m12 l6 hide">
             <h3>Recipes</h3>
-            <div id="recipe-area" class="collection light-green-text">
+            <div id="recipe-area" class="collection">
                 <a href="#!" class="listed-food-recipe collection-item">Rice Pilaff</a>
                 <a href="#!" class="listed-food-recipe collection-item">Fried Chicken</a>
                 <a href="#!" class="listed-food-recipe collection-item">Spaghetti</a>
@@ -178,15 +181,76 @@
                 <a href="#!" class="listed-food-recipe collection-item">Hot Dogs</a>
             </div>
         </div>
-    </div>
 
-    <div class="spacer"></div>
 
-    <!-- All of our Scripts -->
 
-    <script src="./assets//javascript/navbarLogic.js"></script>
-    <script src="./assets//javascript/recipeCardLogic.js"></script>
-    <script src="./assets/javascript/myCalendarLogic.js"></script>
+        <!-- Modal Structure -->
+        <div id="food-card" class="modal">
+
+            <div id="recipe-card" class="col m12 modal-content padding-0" style="padding:0">
+
+                <div class="card">
+                    <div class="card-image">
+                        <img id="recipe-image" class="food-image" src="./assets/images/spiced-jasmine-rice-pilaf.jpg"
+                            alt="">
+                        <a href="#!" class="remove-btn btn-flat red-text right modal-close" data-faved="false">
+                            Remove this recipe
+                        </a>
+                    </div>
+                    <div class="card-content">
+
+                        <span class="food-title card-title light-green-text text-darken-2">Rice Pilaff</span>
+                        <p class="food-summary">I think this should be the summary. Lorem ipsum dolor sit amet
+                            consectetur, adipisicing elit.
+                            Esse dolore dolores, porro debitis officia repellendus iste reiciendis et dignissimos,
+                            numquam vitae nisi architecto quis quidem quas illo error voluptas voluptate?</p>
+
+                        <div class="food-ingredients hide" data-state="hidden">
+                            <h6 class="card-title light-green-text">Ingredients</h6>
+                            <!-- Could not style through separate style sheet -->
+                            <div class="ingredients-text">
+                                <p style="padding:5px 0 5px 0;">ingredient</p>
+                                <p style="padding:5px 0 5px 0;">ingredient</p>
+                                <p style="padding:5px 0 5px 0;">ingredient</p>
+                                <p style="padding:5px 0 5px 0;">ingredient</p>
+                            </div>
+                        </div>
+                        <div class="food-instructions hide" data-state="hidden">
+                            <div class="food-instructions">
+                                <h6 class="card-title light-green-text">Instructions</h6>
+                                <!-- Could not style through separate style sheet -->
+                                <div class="instructions-text">
+                                    <p style="padding:5px 0 5px 0;">Lorem ipsum dolor, sit amet consectetur
+                                        adipisicing
+                                        elit. Maxime amet, libero vitae ipsum accusantium minima voluptate ut,
+                                        temporibus
+                                        aspernatur, natus nemo maiores doloribus numquam! Perspiciatis assumenda
+                                        obcaecati
+                                        nesciunt minima delectus?</p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="#!" class="ingredients-btn">Ingredients</a>
+                        <a href="#!" class="instructions-btn">Instructions</a>
+                        <a href="#!" class="modal-close right red-text">Close</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="spacer"></div>
+
+        <!-- All of our Scripts -->
+
+        <script src="./assets//javascript/navbarLogic.js"></script>
+        <script src="./assets//javascript/recipeCardLogic.js"></script>
+        <script src="./assets/javascript/myCalendarLogic.js"></script>
 
 </body>
 

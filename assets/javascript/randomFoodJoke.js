@@ -12,7 +12,7 @@ $(document).ready(function () {
         }
     }).then(function (response) {
         console.log(response);
-        var joke = $("#randomFoodJoke").text(response.text);
+        var joke = $("#randomFoodJoke").text('"' + response.text + '"');
     });
 
 });
