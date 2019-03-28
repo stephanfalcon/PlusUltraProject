@@ -22,6 +22,8 @@
     <!-- JavaScript Links-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- FireBase Link -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 
 </head>
 
@@ -31,15 +33,15 @@
 
         <div class="container">
 
-            <a href="#" class="brand-logo"><img src="assets/images/white-logo.png" id="logo"
+            <a href="./index.html" class="brand-logo"><img src="assets/images/white-logo.png" id="logo"
                     class="left valign-wrapper"><span class="hide-on-med-and-down">Meal Planner</span></a>
             <a href="#!" class="sidenav-trigger right" data-target="mobile-links">
                 <i class="material-icons">menu</i>
             </a>
 
             <ul class="right hide-on-med-and-down">
-                <li><a href="#">Home</a></li>
-                <li><a href="./favorites.html">Favorites</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">Favorites</a></li>
                 <li><a href="./calendar.html">Calendar</a></li>
                 <li><a href="#login" id="navbar-login-top" class="modal-trigger valign-wrapper">Login
                         <i class="material-icons right">person</i></a>
@@ -49,8 +51,8 @@
     </nav>
 
     <ul class="sidenav light-green darken-1 grey-text" id="mobile-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="./favorites.html">Favorites</a></li>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="#">Favorites</a></li>
         <li><a href="./calendar.html">Calendar</a></li>
         <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger">Login</a></li>
     </ul>
@@ -78,7 +80,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 white-text">
-                    <h2 class="white-text font3">Eat Healthy, Live Healthy</h2>
+                    <h2 class="white-text font3">My Favorites</h2>
                 </div>
             </div>
         </div>
@@ -89,57 +91,9 @@
 
     <div class="container">
 
-        <h2 class="light-green-text">Search Recipes</h2>
-        <!-- Search Bar-->
-        <div class="col section">
-            <form id="search-bar" action="">
-                <div class="input-field">
-                    <input id="food-item" type="text">
-                    <label for="food-item">Enter Ingredient Here</label>
+        <h2 class="light-green-text">Recipes</h2>
 
-                    <button id="search-btn" class="btn right light-green waves-effect waves-light">Search<i
-                            class="material-icons right">search</i></button>
-
-                    <p>
-                        <label>
-                            <input type="checkbox">
-                            <span>Gluten Free</span>
-                        </label>
-                    </p>
-
-                    <p>
-                        <label>
-                            <input type="checkbox">
-                            <span>Paleo</span>
-                        </label>
-                    </p>
-                </div>
-
-
-            </form>
-        </div>
-
-        <!-- End Search Bar -->
-
-        <div class="row">
-
-            <!-- List of meals -->
-            <div id="recipe-list" class="col s12 m12 l6">
-                <h3>Recipes</h3>
-                <div id="recipe-area" class="collection text-green">
-                    <a href="#!" class="listed-food-recipe collection-item">Rice Pilaff</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Fried Chicken</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Spaghetti</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Lasagna</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Turkey Sandwich</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Chicken Salad</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Pot Roast</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Eggs and Bacon</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Toast</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Hot Dogs</a>
-                </div>
-            </div>
-            <!-- End Meal List -->
+        <div id="favorite-cards" class="row section">
 
             <!-- Recipe Card -->
             <div id="recipe-card" class="col m12 l6">
@@ -148,7 +102,7 @@
                     <div class="card-image">
                         <img id="recipe-image" class="food-image" src="./assets/images/spiced-jasmine-rice-pilaf.jpg"
                             alt="">
-                        <a href="#!" class="favorite-btn btn-floating grey pulse halfway-fab" data-faved="false">
+                        <a href="#!" class="favorite-btn btn-floating pink halfway-fab" data-faved="true">
                             <i class="material-icons">favorite</i>
                         </a>
                     </div>
@@ -191,6 +145,75 @@
 
             </div>
             <!-- End recipe Card -->
+
+
+        </div>
+
+        <div id="test" class="row section">
+            <h3>Testing area</h3>
+            <!-- Recipe Card -->
+            <div id="recipe-card" class="col m12 l6">
+
+                <div class="card">
+                    <div class="card-image">
+                        <img id="recipe-image" class="food-image" src="./assets/images/spiced-jasmine-rice-pilaf.jpg"
+                            alt="">
+                        <a href="#!" class="favorite-btn btn-floating pink halfway-fab" data-faved="true"
+                            data-food-id="123">
+                            <i class="material-icons">favorite</i>
+                        </a>
+                    </div>
+                    <div class="card-content">
+
+                        <span id="recipe-title" class="food-title card-title light-green-text text-darken-2">Rice
+                            Pilaff</span>
+                        <p id="recipe-summary" class="food-summary">I think this should be the summary. Lorem ipsum
+                            dolor
+                            sit amet
+                            consectetur, adipisicing elit.
+                            Esse dolore dolores, porro debitis officia repellendus iste reiciendis et
+                            dignissimos,
+                            numquam vitae nisi architecto quis quidem quas illo error voluptas voluptate?</p>
+
+                        <div class="food-ingredients hide" data-state="hidden">
+                            <h6 class="card-title light-green-text">Ingredients</h6>
+                            <!-- Could not style through separate style sheet -->
+                            <div id="recipe-ingredients">
+                                <p style="padding:5px 0 5px 0;">ingredient</p>
+                                <p style="padding:5px 0 5px 0;">ingredient</p>
+                                <p style="padding:5px 0 5px 0;">ingredient</p>
+                                <p style="padding:5px 0 5px 0;">ingredient</p>
+                            </div>
+
+                        </div>
+                        <div class="food-instructions hide" data-state="hidden">
+
+                            <h6 class="card-title light-green-text">Instructions</h6>
+                            <!-- Could not style through separate style sheet -->
+                            <div id="recipe-instructions">
+                                <p style=" padding:5px 0 5px 0;">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing
+                                    elit. Maxime amet, libero vitae ipsum accusantium minima voluptate ut,
+                                    temporibus
+                                    aspernatur, natus nemo maiores doloribus numquam! Perspiciatis assumenda
+                                    obcaecati
+                                    nesciunt minima delectus?</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="card-action">
+
+                        <a href="#!" class="ingredients-btn">Ingredients</a>
+                        <a href="#!" class="instructions-btn">Instructions</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End recipe Card -->
+
+
         </div>
 
     </div>
@@ -199,9 +222,9 @@
 
     <!-- All of our Scripts -->
     <script src="./assets/javascript/script.js"></script>
-    <script src="./assets/javascript/script.js"></script>
     <script src="./assets//javascript/navbarLogic.js"></script>
     <script src="./assets//javascript/recipeCardLogic.js"></script>
+    <script src="./assets/javascript/myFavoritesLogic.js"></script>
 
 </body>
 
