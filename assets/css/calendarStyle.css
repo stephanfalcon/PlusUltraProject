@@ -16,19 +16,30 @@
 
 }
 
-.box {
+.box,
+.box-side {
     height: 120px;
     border: 1px solid white;
+    ;
+
+}
+
+.box-side {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
+    justify-content: center
 }
 
 .meal-row {
     margin: 5px 0px 5px 0px;
     min-height: 100px;
+}
+
+#recipe-area {
+    height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 /* splits calendar into even 8ths normally or 7ths when small */

@@ -14,6 +14,8 @@ $(document).ready(function () {
 
     $("#favorite-cards").html("");
 
+
+    // basic add to firebase button
     $(document).on("click", ".favorite-btn", function () {
 
         var image = $("#recipe-image").attr("src");
@@ -21,12 +23,14 @@ $(document).ready(function () {
         var summary = $("#recipe-summary").text();
         var ingredients = $("#recipe-ingredients").html();
         var instructions = $("#recipe-instructions").html();
+        var recipeId = $(this).attr("data-food-id")
 
         console.log(image);
         console.log(title);
         console.log(summary);
         console.log(ingredients);
         console.log(instructions);
+        console.log(recipeId);
 
         var newRecipe = {
             image: image,
@@ -34,6 +38,7 @@ $(document).ready(function () {
             summary: summary,
             ingredients: ingredients,
             instructions: instructions,
+            recipeId: recipeId
         };
 
         database.ref("/recipes").push(newRecipe);
@@ -45,6 +50,7 @@ $(document).ready(function () {
 
     });
 
+    // event listener when a recipe is added
     database.ref("/recipes").on("child_added", function (snapshot) {
 
         var foodImage = snapshot.val().image;
@@ -52,6 +58,7 @@ $(document).ready(function () {
         var foodSummary = snapshot.val().summary;
         var foodIngredients = snapshot.val().ingredients;
         var foodInstructions = snapshot.val().instructions;
+        var foodId = snapshot.val().recipeId;
 
         console.log("------")
         console.log("printing object");
@@ -77,6 +84,7 @@ $(document).ready(function () {
         newFavBtn.addClass("favorite-btn btn-floating pink halfway-fab");
         newFavBtn.attr("href", "#!");
         newFavBtn.attr("data-faved", "true");
+        newFavBtn.attr("data-food-id", foodId);
 
         var newMatIcon = $("<i>");
         newMatIcon.addClass("material-icons");
@@ -105,6 +113,7 @@ $(document).ready(function () {
 
         var newIngDiv = $("<div>");
         newIngDiv.addClass("food-ingredients hide");
+        newIngDiv.attr("id", foodId + "ingredients")
         newIngDiv.attr("data-state", "hidden");
 
         var newH6Ing = $("<h6>");
@@ -113,6 +122,7 @@ $(document).ready(function () {
 
         var newInstrDiv = $("<div>");
         newInstrDiv.addClass("food-instructions hide");
+        newInstrDiv.attr("id", foodId + "instructions")
         newInstrDiv.attr("data-state", "hidden");
 
         var newH6Instr = $("<h6>");
@@ -145,11 +155,13 @@ $(document).ready(function () {
 
         var newIngBtn = $("<a>");
         newIngBtn.addClass("ingredients-btn");
+        newIngBtn.attr("data-food-id", foodId);
         newIngBtn.attr("href", "#!");
         newIngBtn.text("Ingredients");
 
         var newInstrBtn = $("<a>");
         newInstrBtn.addClass("instructions-btn");
+        newInstrBtn.attr("data-food-id", foodId);
         newInstrBtn.attr("href", "#!");
         newInstrBtn.text("Instructions");
 

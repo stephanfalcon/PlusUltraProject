@@ -23,6 +23,8 @@
     <!-- JavaScript Links-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- FireBase Link -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 
 </head>
 
@@ -126,15 +128,9 @@
         </div>
         <div class="meal-row row light-green lighten-5">
             <div class="xtra-info">
-                <div class=" col s8ths s1 box"><b>Breakfast</b></div>
+                <div class=" col s8ths s1 box-side"><b>Breakfast</b></div>
             </div>
-            <div class="col s8ths s1 box">
-                <span class="recipe-title">Chicken Soup</span>
-                <span class="recipe-image"><img class="food-pic"
-                        src="https://tmbidigitalassetsazure.blob.core.windows.net/secure/RMS/attachments/37/1200x1200/exps192832_TH163619D09_30_2b.jpg"
-                        alt="chicken soup"></img>
-                </span>
-            </div>
+            <div class="col s8ths s1 box"></div>
             <div class="col s8ths s1 box"></div>
             <div class="col s8ths s1 box"></div>
             <div class="col s8ths s1 box"></div>
@@ -144,7 +140,7 @@
         </div>
         <div class="meal-row row light-green lighten-4">
             <div class="xtra-info">
-                <div class=" col s8ths s1 box"><b>Lunch</b></div>
+                <div class=" col s8ths s1 box-side"><b>Lunch</b></div>
             </div>
             <div class="col s8ths s1 box"></div>
             <div class="col s8ths s1 box"></div>
@@ -156,7 +152,7 @@
         </div>
         <div class="meal-row row light-green lighten-5">
             <div class="xtra-info">
-                <div class=" col s8ths s1 box"><b>Dinner</b></div>
+                <div class=" col s8ths s1 box-side"><b>Dinner</b></div>
             </div>
             <div class="col s8ths s1 box"></div>
             <div class="col s8ths s1 box"></div>
@@ -166,13 +162,31 @@
             <div class="col s8ths s1 box"></div>
             <div class="col s8ths s1 box"></div>
         </div>
+        <!-- <a id="searchFavs" class="waves-effect waves-light btn-small red right section">Search Favorites</a> -->
+        <div id="recipe-list" class="col s12 m12 l6">
+            <h3>Recipes</h3>
+            <div id="recipe-area" class="collection light-green-text">
+                <a href="#!" class="listed-food-recipe collection-item">Rice Pilaff</a>
+                <a href="#!" class="listed-food-recipe collection-item">Fried Chicken</a>
+                <a href="#!" class="listed-food-recipe collection-item">Spaghetti</a>
+                <a href="#!" class="listed-food-recipe collection-item">Lasagna</a>
+                <a href="#!" class="listed-food-recipe collection-item">Turkey Sandwich</a>
+                <a href="#!" class="listed-food-recipe collection-item">Chicken Salad</a>
+                <a href="#!" class="listed-food-recipe collection-item">Pot Roast</a>
+                <a href="#!" class="listed-food-recipe collection-item">Eggs and Bacon</a>
+                <a href="#!" class="listed-food-recipe collection-item">Toast</a>
+                <a href="#!" class="listed-food-recipe collection-item">Hot Dogs</a>
+            </div>
+        </div>
     </div>
 
+    <div class="spacer"></div>
+
     <!-- All of our Scripts -->
-    <script src="./assets/javascript/script.js"></script>
-    <script src="./assets/javascript/script.js"></script>
+
     <script src="./assets//javascript/navbarLogic.js"></script>
     <script src="./assets//javascript/recipeCardLogic.js"></script>
+    <script src="./assets/javascript/myCalendarLogic.js"></script>
 
 </body>
 
