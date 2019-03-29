@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meal Planner</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/images/green-logo.png" type="image/x-icon">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/calendarStyle.css">
+
+    <!-- JavaScript Links-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- FireBase Link -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+
+</head>
+
+<body>
+    <!-- NavBar -->
+    <nav class="nav-wrapper light-green darken-1">
+
+        <div class="container">
+
+            <a href="./index.html" class="brand-logo"><img src="assets/images/white-logo.png" id="logo"
+                    class="left valign-wrapper"><span class="hide-on-med-and-down">Meal Planner</span></a>
+            <a href="#!" class="sidenav-trigger right" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <ul class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./favorites.html">Favorites</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#login" id="navbar-login-top" class="modal-trigger valign-wrapper">Login
+                        <i class="material-icons right">person</i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav light-green darken-1 grey-text" id="mobile-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./favorites.html">Favorites</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger">Login</a></li>
+    </ul>
+
+    <!-- Modal -->
+    <div class="modal" id="login">
+        <div class="modal-content">
+            <i class="material-icons modal-close right">close</i>
+
+            <input id="user-name" type="text" class="validate">
+            <label for="user_name">User Name</label>
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id="sign-in-btn" class="modal-close btn light-green waves-effect waves-light">Sign In</a>
+
+        </div>
+    </div>
+    <br>
+    <!-- End NavBar -->
+
+
+    <div class="parallax-container center valign-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 white-text">
+                    <h2 class="white-text font3">My Calendar</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="parallax"><img src="./assets/images/veggies-wallpaper.jpeg"></div>
+
+    </div>
+
+    <!-- Calendar -->
+
+
+    <div class="container">
+
+        <h2 class="light-green-text">Weekly Plan</h2>
+
+        <div class="row light-green darken-2 white-text">
+            <div class="xtra-info">
+                <div class="col s8ths s1 box-title">
+                    <h5>Meal</h5>
+                </div>
+            </div>
+
+            <div class="col s8ths s1 box-title">
+                <h5>S<span class="xtra-info">un</span></h5>
+            </div>
+            <div class="col s8ths s1 box-title">
+                <h5>M<span class="xtra-info">on</span></h5>
+            </div>
+            <div class="col s8ths s1 box-title">
+                <h5>T<span class="xtra-info">ue</span></h5>
+            </div>
+            <div class="col s8ths s1 box-title">
+                <h5>W<span class="xtra-info">ed</span></h5>
+            </div>
+            <div class="col s8ths s1 box-title">
+                <h5>T<span class="xtra-info">hu</span></h5>
+            </div>
+            <div class="col s8ths s1 box-title">
+                <h5>F<span class="xtra-info">ri</span></h5>
+            </div>
+            <div class="col s8ths s1 box-title">
+                <h5>S<span class="xtra-info">at</span></h5>
+            </div>
+        </div>
+        <div class="meal-row row light-green lighten-5">
+            <div class="xtra-info">
+                <div class=" col s8ths s1 box-side"><b>Breakfast</b></div>
+            </div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+        </div>
+        <div class="meal-row row light-green lighten-4">
+            <div class="xtra-info">
+                <div class=" col s8ths s1 box-side"><b>Lunch</b></div>
+            </div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+        </div>
+        <div class="meal-row row light-green lighten-5">
+            <div class="xtra-info">
+                <div class=" col s8ths s1 box-side"><b>Dinner</b></div>
+            </div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+            <div class="col s8ths s1 box"></div>
+        </div>
+        <!-- <a id="searchFavs" class="waves-effect waves-light btn-small red right section">Search Favorites</a> -->
+        <div id="recipe-list" class="col s12 m12 l6">
+            <h3>Recipes</h3>
+            <div id="recipe-area" class="collection light-green-text">
+                <a href="#!" class="listed-food-recipe collection-item">Rice Pilaff</a>
+                <a href="#!" class="listed-food-recipe collection-item">Fried Chicken</a>
+                <a href="#!" class="listed-food-recipe collection-item">Spaghetti</a>
+                <a href="#!" class="listed-food-recipe collection-item">Lasagna</a>
+                <a href="#!" class="listed-food-recipe collection-item">Turkey Sandwich</a>
+                <a href="#!" class="listed-food-recipe collection-item">Chicken Salad</a>
+                <a href="#!" class="listed-food-recipe collection-item">Pot Roast</a>
+                <a href="#!" class="listed-food-recipe collection-item">Eggs and Bacon</a>
+                <a href="#!" class="listed-food-recipe collection-item">Toast</a>
+                <a href="#!" class="listed-food-recipe collection-item">Hot Dogs</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- All of our Scripts -->
+
+    <script src="./assets//javascript/navbarLogic.js"></script>
+    <script src="./assets//javascript/recipeCardLogic.js"></script>
+    <script src="./assets/javascript/myCalendarLogic.js"></script>
+
+</body>
+
+</html>

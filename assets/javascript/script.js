@@ -1,22 +1,10 @@
-
-
 //Be able to search ingredient item, and it pull up 10 recipes from API 
 // on "click" event but submit since I couldn't change type on input
-vegan = false;
-diet = ""
 $("#search-bar").on("submit", function () {
-    diet = ""
     var searchCriteria = $("#food-item").val().trim();
-    
-    if($("#vegan").is(":checked")==true){
-      diet = "vegan"
-    }
     search(searchCriteria);
-
     return false;
 }); 
-
-
 
 // variable to push searchresults to
 var searchResults = [];
