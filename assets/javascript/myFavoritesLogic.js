@@ -1,55 +1,21 @@
 $(document).ready(function () {
 
     // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBP2bIcOJ5msjtfLLVspEVYsWoFt7DbK7k",
-        authDomain: "my-food-calendar.firebaseapp.com",
-        databaseURL: "https://my-food-calendar.firebaseio.com",
-        projectId: "my-food-calendar",
-        storageBucket: "my-food-calendar.appspot.com",
-        messagingSenderId: "352501120418"
-    };
-    firebase.initializeApp(config);
+    // Not needed because it is called in RecipeCardLogic
+
+    // var config = {
+    //     apiKey: "AIzaSyBP2bIcOJ5msjtfLLVspEVYsWoFt7DbK7k",
+    //     authDomain: "my-food-calendar.firebaseapp.com",
+    //     databaseURL: "https://my-food-calendar.firebaseio.com",
+    //     projectId: "my-food-calendar",
+    //     storageBucket: "my-food-calendar.appspot.com",
+    //     messagingSenderId: "352501120418"
+    // };
+    // firebase.initializeApp(config);
 
     var database = firebase.database();
 
     $("#favorite-cards").html("");
-
-
-    // basic add to firebase button
-    $(document).on("click", ".favorite-btn", function () {
-
-        var image = $("#recipe-image").attr("src");
-        var title = $("#recipe-title").text();
-        var summary = $("#recipe-summary").text();
-        var ingredients = $("#recipe-ingredients").html();
-        var instructions = $("#recipe-instructions").html();
-        var recipeId = $(this).attr("data-food-id")
-
-        console.log(image);
-        console.log(title);
-        console.log(summary);
-        console.log(ingredients);
-        console.log(instructions);
-        console.log(recipeId);
-
-        var newRecipe = {
-            image: image,
-            title: title,
-            summary: summary,
-            ingredients: ingredients,
-            instructions: instructions,
-            recipeId: recipeId
-        };
-
-        database.ref("/recipes").push(newRecipe);
-
-        console.log("Recipe Added");
-
-
-
-
-    });
 
     // event listener when a recipe is added
     database.ref("/recipes").on("child_added", function (snapshot) {

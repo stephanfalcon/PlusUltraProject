@@ -1,15 +1,18 @@
 $(document).ready(function () {
 
     // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBP2bIcOJ5msjtfLLVspEVYsWoFt7DbK7k",
-        authDomain: "my-food-calendar.firebaseapp.com",
-        databaseURL: "https://my-food-calendar.firebaseio.com",
-        projectId: "my-food-calendar",
-        storageBucket: "my-food-calendar.appspot.com",
-        messagingSenderId: "352501120418"
-    };
-    firebase.initializeApp(config);
+    // Not needed because it is called in RecipeCardLogic
+
+
+    // var config = {
+    //     apiKey: "AIzaSyBP2bIcOJ5msjtfLLVspEVYsWoFt7DbK7k",
+    //     authDomain: "my-food-calendar.firebaseapp.com",
+    //     databaseURL: "https://my-food-calendar.firebaseio.com",
+    //     projectId: "my-food-calendar",
+    //     storageBucket: "my-food-calendar.appspot.com",
+    //     messagingSenderId: "352501120418"
+    // };
+    // firebase.initializeApp(config);
 
     var database = firebase.database();
 
@@ -151,7 +154,7 @@ $(document).ready(function () {
             console.log(boxId);
 
             var cardId = $(this).attr("data-food-id");
-            var cardImg = $(this).attr("src");
+            var cardImg = $(this).attr("data-food-img");
             var cardSum = $(this).attr("data-food-sum");
             var cardIng = $(this).attr("data-food-ing");
             var cardInstr = $(this).attr("data-food-instr");
@@ -159,6 +162,7 @@ $(document).ready(function () {
 
             // $("#recipe-image").attr("src", cardImg);
             $(".food-title").text(cardTitle);
+            $(".food-image").attr("src", cardImg);
             $(".food-summary").html(cardSum);
             $(".ingredients-text").html(cardIng);
             $(".instructions-text").html(cardInstr);
