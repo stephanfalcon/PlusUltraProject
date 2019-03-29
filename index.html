@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meal Planner</title>
 
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="./assets/images/green-logo.png" type="image/x-icon">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
     <!-- CSS Links -->
     <link rel="stylesheet" href="./assets/css/reset.css">
@@ -97,13 +100,14 @@
                     <input id="food-item" type="text">
                     <label for="food-item">Enter Ingredient Here</label>
 
-                    <button id="search-btn" class="btn right light-green waves-effect waves-light">Search<i
+
+                    <button id="search-btn" type="button" class="btn right light-green waves-effect waves-light">Search<i
                             class="material-icons right">search</i></button>
 
                     <p>
                         <label>
-                            <input type="checkbox">
-                            <span>Gluten Free</span>
+                            <input type="checkbox" id="vegan">
+                            <span>vegan</span>
                         </label>
                     </p>
 
@@ -142,7 +146,7 @@
             <!-- End Meal List -->
 
             <!-- Recipe Card -->
-            <div id="recipe-card" class="col m12 l6">
+            <div id="recipe-card" class="col m12 l6" data-id="">
 
                 <div class="card">
                     <div class="card-image">
@@ -155,28 +159,25 @@
                     <div class="card-content">
 
                         <span class="food-title card-title light-green-text text-darken-2">Rice Pilaff</span>
-                        <p class="food-summary">I think this should be the summary. Lorem ipsum dolor sit amet
-                            consectetur, adipisicing elit.
-                            Esse dolore dolores, porro debitis officia repellendus iste reiciendis et dignissimos,
-                            numquam vitae nisi architecto quis quidem quas illo error voluptas voluptate?</p>
+                        <h6 class="light-green-text">Diets</h6>
+                        <p class="food-summary"></p>
 
                         <div class="food-ingredients hide" data-state="hidden">
                             <h6 class="card-title light-green-text">Ingredients</h6>
                             <!-- Could not style through separate style sheet -->
-                            <p style="padding:5px 0 5px 0;">ingredient</p>
-                            <p style="padding:5px 0 5px 0;">ingredient</p>
-                            <p style="padding:5px 0 5px 0;">ingredient</p>
-                            <p style="padding:5px 0 5px 0;">ingredient</p>
 
+                            <table class="ingredients">
+                                <tr>
+                                    
+                                </tr>                             
+                            </table>
+                        
                         </div>
                         <div class="food-instructions hide" data-state="hidden">
                             <div class="food-instructions">
                                 <h6 class="card-title light-green-text">Instructions</h6>
                                 <!-- Could not style through separate style sheet -->
-                                <p style="padding:5px 0 5px 0;">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                    elit. Maxime amet, libero vitae ipsum accusantium minima voluptate ut, temporibus
-                                    aspernatur, natus nemo maiores doloribus numquam! Perspiciatis assumenda obcaecati
-                                    nesciunt minima delectus?</p>
+                                <div class="instructions"></div>
 
 
                             </div>
@@ -218,12 +219,13 @@
 
     <!-- All of our Scripts -->
     <script src="./assets/javascript/script.js"></script>
-    <script src="./assets/javascript/script.js"></script>
+    <script src="./assets/javascript/frontPage.js"></script>
     <script src="./assets//javascript/navbarLogic.js"></script>
     <script src="./assets//javascript/recipeCardLogic.js"></script>
     <script src="./assets/javascript/randomFoodJoke.js"></script>
     <script src="./assets/javascript/randomFoodTrivia.js"></script>
 
 </body>
+
 
 </html>
