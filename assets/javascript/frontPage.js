@@ -1,6 +1,7 @@
 //Be able to search ingredient item, and it pull up 10 recipes from API 
 // on "click" event but submit since I couldn't change type on input
-$("#search-bar").on("submit", function () {
+console.log("here")
+$("#search-btn").on("click", function () {
     var searchCriteria = $("#food-item").val().trim();
     search(searchCriteria);
     return false;
@@ -11,7 +12,7 @@ var searchResults = [];
 
 // a function that contains our ajax call and generates search based on users input (criteria)
 function search(criteria) {
-  var queryURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?diet=${diet}&query=${criteria}`; 
+  var queryURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=${criteria}`; 
   $("#recipe-area").empty()
   // Performing our AJAX GET request
   $.ajax({
