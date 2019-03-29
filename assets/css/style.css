@@ -9,6 +9,13 @@ cursive;
 font-family: 'Permanent Marker',
 cursive; */
 
+.modal-overlay {
+    background-color: #33691e;
+}
+
+.card-action {
+    padding: 10px !important;
+}
 
 #logo {
     height: 40px;

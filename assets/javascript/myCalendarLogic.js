@@ -102,9 +102,15 @@ $(document).ready(function () {
         if (showRecipes === true && recipeId != "") {
             $(this).html("");
             $(this).attr("data-food-id", recipeId);
+            $(this).attr("data-food-img", recipeImg);
             $(this).attr("data-food-sum", recipeSum);
             $(this).attr("data-food-ing", recipeIng);
             $(this).attr("data-food-instr", recipeInstr);
+
+
+            $(this).css("background-image", "url('" + recipeImg + "')");
+            $(this).css("background-color", "#bfbfbf");
+            $(this).css("background-blend-mode", "multiply");
 
 
             $(this).attr("data-filled", "true");
@@ -113,13 +119,13 @@ $(document).ready(function () {
             boxTitle.addClass("section truncate")
             boxTitle.text(recipeTitle);
 
-            var boxImage = $("<img>");
-            boxImage.addClass("food-pic")
-            boxImage.attr("src", recipeImg);
+            // var boxImage = $("<img>");
+            // boxImage.addClass("food-pic")
+            // boxImage.attr("src", recipeImg);
 
             $(this).append(
                 boxTitle,
-                boxImage
+                // boxImage
             );
             console.log("recipe placed")
 
@@ -127,6 +133,12 @@ $(document).ready(function () {
 
             $(this).html("");
             $(this).attr("data-food-id", "");
+            $(this).attr("data-food-img", "");
+
+            $(this).css("background-image", "url('')");
+            $(this).css("background-color", "");
+            $(this).css("background-blend-mode", "");
+
             $(this).attr("data-food-sum", "");
             $(this).attr("data-food-ing", "");
             $(this).attr("data-food-instr", "");
@@ -145,12 +157,17 @@ $(document).ready(function () {
             var cardInstr = $(this).attr("data-food-instr");
             var cardTitle = $(this).text();
 
-            $("#recipe-image").attr("src", cardImg);
+            // $("#recipe-image").attr("src", cardImg);
             $(".food-title").text(cardTitle);
             $(".food-summary").html(cardSum);
             $(".ingredients-text").html(cardIng);
             $(".instructions-text").html(cardInstr);
 
+            $(".food-instructions").addClass("hide");
+            $(".food-instructions").attr("data-state", "hidden");
+
+            $(".food-ingredients").addClass("hide");
+            $(".food-ingredients").attr("data-state", "hidden");
 
         }
     });
@@ -158,6 +175,11 @@ $(document).ready(function () {
     $(".remove-btn").on("click", function () {
         $("#" + boxId).html("");
         $("#" + boxId).attr("data-food-id", "");
+
+        $("#" + boxId).css("background-image", "url('')");
+        $("#" + boxId).css("background-color", "");
+        $("#" + boxId).css("background-blend-mode", "");
+
         $("#" + boxId).attr("data-filled", "false");
         $("#" + boxId).removeClass("modal-trigger");
         console.log("recipe removed");
