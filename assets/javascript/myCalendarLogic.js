@@ -22,7 +22,7 @@ $(document).ready(function () {
     var recipeTitle = "";
     var boxId = "";
 
-    var mealArray = ["b-sun", "b-mon", "b-tue", "b-wed", "b-thu", "b-fri", "b-sat", "l-sun", "l-mon", "l-tue", "l-wed", "l-thu", "l-fri", "l-sat", "d-sun", "d-mon", "d-tue", "d-wed", "d-thu", "d-fri", "d-sat"];
+    var mealArray = ["bSun", "bMon", "bTue", "bWed", "bThu", "bFri", "bSat", "lSun", "lMon", "lTue", "lWed", "lThu", "lFri", "lSat", "dSun", "dMon", "dTue", "dWed", "dThu", "dFri", "dSat"];
 
     $("#recipe-area").html("");
 
@@ -216,6 +216,9 @@ $(document).ready(function () {
             meal = $("#" + mealArray[i]);
             console.log(mealArray[i]);
             var dataFilled = meal.attr("data-filled");
+            var isFilled = meal.attr("data-filled");
+
+
             var title = meal.text();
             var image = meal.attr("data-food-img");
             var summary = meal.attr("data-food-sum");
@@ -233,7 +236,6 @@ $(document).ready(function () {
             console.log(instructions);
             console.log(recipeId);
             console.log(style);
-            bbbb
 
             var newMeal = {
                 dataFilled: dataFilled,
@@ -246,9 +248,14 @@ $(document).ready(function () {
                 style: style
             };
 
-            database.ref("/calendar/" + meal).push(newMeal);
+            if (isFilled === "true") {
 
-            console.log("Plan saved!");
+                database.ref("/calendar/" + mealArray[i]).push(newMeal);
+
+                console.log("Plan saved!");
+            } else {
+                console.log("nada");
+            }
         };
 
 
