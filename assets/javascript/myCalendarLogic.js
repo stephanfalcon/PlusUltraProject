@@ -178,17 +178,15 @@ $(document).ready(function () {
 
             $(".food-instructions").addClass("hide");
             $(".food-instructions").attr("data-state", "hidden");
-            $(".food-instructions").attr("id", card + "food-instructions");
+            $(".food-instructions").attr("id", cardId + "food-instructions");
+            $(".instructions").attr("id", cardId + "instructions");
             $(".instructions-btn").attr("data-food-id", cardId);
 
             $(".food-ingredients").addClass("hide");
             $(".food-ingredients").attr("data-state", "hidden");
-            $(".food-ingredients").attr("id", card + "food-ingredients");
+            $(".food-ingredients").attr("id", cardId + "food-ingredients");
+            $(".ingredients").attr("id", cardId + "ingredients");
             $(".ingredients-btn").attr("data-food-id", cardId);
-
-            $(".food-ingredients").attr("id", cardId + "ingredients");
-            $(".food-instructions").attr("id", cardId + "instructions");
-
 
         }
     });

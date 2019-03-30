@@ -66,6 +66,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".ingredients-btn", function () {
         var foodId = $(this).attr("data-food-id");
+        console.log(foodId);
 
         var ingredientsState = $("#" + foodId + "food-ingredients").attr("data-state");
         console.log(ingredientsState);

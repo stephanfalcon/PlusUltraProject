@@ -72,6 +72,7 @@ $(document).ready(function () {
 
         var newTitle = $("<span>");
         newTitle.addClass("food-title card-title light-green-text text-darken-2");
+        newTitle.attr("id", foodId + "title")
         newTitle.text(foodTitle);
 
         var newH6Sum = $("<h6>");
