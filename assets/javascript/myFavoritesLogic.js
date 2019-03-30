@@ -1,55 +1,19 @@
 $(document).ready(function () {
 
     // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBP2bIcOJ5msjtfLLVspEVYsWoFt7DbK7k",
-        authDomain: "my-food-calendar.firebaseapp.com",
-        databaseURL: "https://my-food-calendar.firebaseio.com",
-        projectId: "my-food-calendar",
-        storageBucket: "my-food-calendar.appspot.com",
-        messagingSenderId: "352501120418"
-    };
-    firebase.initializeApp(config);
+    // Not needed because it is called in RecipeCardLogic
+
+    // var config = {
+    //     apiKey: "AIzaSyBP2bIcOJ5msjtfLLVspEVYsWoFt7DbK7k",
+    //     authDomain: "my-food-calendar.firebaseapp.com",
+    //     databaseURL: "https://my-food-calendar.firebaseio.com",
+    //     projectId: "my-food-calendar",
+    //     storageBucket: "my-food-calendar.appspot.com",
+    //     messagingSenderId: "352501120418"
+    // };
+    // firebase.initializeApp(config);
 
     var database = firebase.database();
-
-    $("#favorite-cards").html("");
-
-
-    // basic add to firebase button
-    $(document).on("click", ".favorite-btn", function () {
-
-        var image = $("#recipe-image").attr("src");
-        var title = $("#recipe-title").text();
-        var summary = $("#recipe-summary").text();
-        var ingredients = $("#recipe-ingredients").html();
-        var instructions = $("#recipe-instructions").html();
-        var recipeId = $(this).attr("data-food-id")
-
-        console.log(image);
-        console.log(title);
-        console.log(summary);
-        console.log(ingredients);
-        console.log(instructions);
-        console.log(recipeId);
-
-        var newRecipe = {
-            image: image,
-            title: title,
-            summary: summary,
-            ingredients: ingredients,
-            instructions: instructions,
-            recipeId: recipeId
-        };
-
-        database.ref("/recipes").push(newRecipe);
-
-        console.log("Recipe Added");
-
-
-
-
-    });
 
     // event listener when a recipe is added
     database.ref("/recipes").on("child_added", function (snapshot) {
@@ -66,7 +30,7 @@ $(document).ready(function () {
 
 
         var newRecipeCol = $("<div>");
-        newRecipeCol.addClass("col m12 l6");
+        newRecipeCol.addClass("col s12");
 
         var newCardDiv = $("<div>");
         newCardDiv.addClass("card");
@@ -108,9 +72,13 @@ $(document).ready(function () {
         newTitle.addClass("food-title card-title light-green-text text-darken-2");
         newTitle.text(foodTitle);
 
+        var newH6Sum = $("<h6>");
+        newH6Sum.addClass("orange-text text-lighten-1");
+        newH6Sum.text("Diet Info");
+
         var newSummary = $("<p>");
-        newSummary.addClass("food-summary");
-        newSummary.text(foodSummary);
+        newSummary.addClass("food-summary grey-text");
+        newSummary.html(foodSummary);
 
         var newIngDiv = $("<div>");
         newIngDiv.addClass("food-ingredients hide");
@@ -121,6 +89,10 @@ $(document).ready(function () {
         newH6Ing.addClass("card-title light-green-text");
         newH6Ing.text("Ingredients");
 
+        var newIngTable = $("<table>");
+        newIngTable.addClass("ingredients");
+        newIngTable.html(foodIngredients);
+
         var newInstrDiv = $("<div>");
         newInstrDiv.addClass("food-instructions hide");
         newInstrDiv.attr("id", foodId + "instructions")
@@ -130,20 +102,25 @@ $(document).ready(function () {
         newH6Instr.addClass("card-title light-green-text");
         newH6Instr.text("Instructions");
 
+        var newInstrText = $("<table>");
+        newInstrText.addClass("instructions");
+        newInstrText.html(foodInstructions);
+
         // Append Card Content
 
         newIngDiv.append(
             newH6Ing,
-            foodIngredients
+            newIngTable
         );
 
         newInstrDiv.append(
             newH6Instr,
-            foodInstructions
+            newInstrText
         );
 
         newCardContent.append(
             newTitle,
+            newH6Sum,
             newSummary,
             newIngDiv,
             newInstrDiv
@@ -183,7 +160,21 @@ $(document).ready(function () {
             newCardAction
         );
         newRecipeCol.append(newCardDiv);
-        $("#favorite-cards").append(newRecipeCol);
+
+        // Checks which column to add on recipe
+
+        var col1Height = $("#col-1").height();
+        var col2Height = $("#col-2").height();
+
+        console.log("column 1: " + col1Height);
+        console.log("column 2: " + col2Height);
+
+
+        if (col1Height <= col2Height) {
+            $("#col-1").append(newRecipeCol);
+        } else {
+            $("#col-2").append(newRecipeCol);
+        }
 
         console.log("------")
     });

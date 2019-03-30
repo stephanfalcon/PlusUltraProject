@@ -34,7 +34,7 @@
         <div class="container">
 
             <a href="./index.html" class="brand-logo"><img src="assets/images/white-logo.png" id="logo"
-                    class="left valign-wrapper"><span class="hide-on-med-and-down">Meal Planner</span></a>
+                    class="left valign-wrapper"><span class="hide-on-med-and-down font2">Meal Planner</span></a>
             <a href="#!" class="sidenav-trigger right" data-target="mobile-links">
                 <i class="material-icons">menu</i>
             </a>
@@ -50,11 +50,11 @@
         </div>
     </nav>
 
-    <ul class="sidenav light-green darken-1 grey-text" id="mobile-links">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="#">Favorites</a></li>
-        <li><a href="./calendar.html">Calendar</a></li>
-        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger">Login</a></li>
+    <ul class="sidenav light-green darken-1" id="mobile-links">
+        <li><a href="./index.html" class="white-text">Home</a></li>
+        <li><a href="#" class="white-text">Favorites</a></li>
+        <li><a href="./calendar.html" class="white-text">Calendar</a></li>
+        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger white-text">Login</a></li>
     </ul>
 
     <!-- Modal -->
@@ -63,7 +63,7 @@
             <i class="material-icons modal-close right">close</i>
 
             <input id="user-name" type="text" class="validate">
-            <label for="user_name">User Name</label>
+            <label for="user-name">User Name</label>
             <input id="password" type="password" class="validate">
             <label for="password">Password</label>
         </div>
@@ -91,129 +91,11 @@
 
     <div class="container">
 
-        <h2 class="light-green-text">Recipes</h2>
+        <h2 class="light-green-text font2">Saved Recipes</h2>
 
         <div id="favorite-cards" class="row section">
-
-            <!-- Recipe Card -->
-            <div id="recipe-card" class="col m12 l6">
-
-                <div class="card">
-                    <div class="card-image">
-                        <img id="recipe-image" class="food-image" src="./assets/images/spiced-jasmine-rice-pilaf.jpg"
-                            alt="">
-                        <a href="#!" class="favorite-btn btn-floating pink halfway-fab" data-faved="true">
-                            <i class="material-icons">favorite</i>
-                        </a>
-                    </div>
-                    <div class="card-content">
-
-                        <span class="food-title card-title light-green-text text-darken-2">Rice Pilaff</span>
-                        <p class="food-summary">I think this should be the summary. Lorem ipsum dolor sit amet
-                            consectetur, adipisicing elit.
-                            Esse dolore dolores, porro debitis officia repellendus iste reiciendis et dignissimos,
-                            numquam vitae nisi architecto quis quidem quas illo error voluptas voluptate?</p>
-
-                        <div class="food-ingredients hide" data-state="hidden">
-                            <h6 class="card-title light-green-text">Ingredients</h6>
-                            <!-- Could not style through separate style sheet -->
-                            <p style="padding:5px 0 5px 0;">ingredient</p>
-                            <p style="padding:5px 0 5px 0;">ingredient</p>
-                            <p style="padding:5px 0 5px 0;">ingredient</p>
-                            <p style="padding:5px 0 5px 0;">ingredient</p>
-
-                        </div>
-                        <div class="food-instructions hide" data-state="hidden">
-                            <div class="food-instructions">
-                                <h6 class="card-title light-green-text">Instructions</h6>
-                                <!-- Could not style through separate style sheet -->
-                                <p style="padding:5px 0 5px 0;">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                    elit. Maxime amet, libero vitae ipsum accusantium minima voluptate ut, temporibus
-                                    aspernatur, natus nemo maiores doloribus numquam! Perspiciatis assumenda obcaecati
-                                    nesciunt minima delectus?</p>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-action">
-
-                        <a href="#!" class="ingredients-btn">Ingredients</a>
-                        <a href="#!" class="instructions-btn">Instructions</a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- End recipe Card -->
-
-
-        </div>
-
-        <div id="test" class="row section">
-            <h3>Testing area</h3>
-            <!-- Recipe Card -->
-            <div id="recipe-card" class="col m12 l6">
-
-                <div class="card">
-                    <div class="card-image">
-                        <img id="recipe-image" class="food-image" src="./assets/images/spiced-jasmine-rice-pilaf.jpg"
-                            alt="">
-                        <a href="#!" class="favorite-btn btn-floating pink halfway-fab" data-faved="true"
-                            data-food-id="123">
-                            <i class="material-icons">favorite</i>
-                        </a>
-                    </div>
-                    <div class="card-content">
-
-                        <span id="recipe-title" class="food-title card-title light-green-text text-darken-2">Rice
-                            Pilaff</span>
-                        <p id="recipe-summary" class="food-summary">I think this should be the summary. Lorem ipsum
-                            dolor
-                            sit amet
-                            consectetur, adipisicing elit.
-                            Esse dolore dolores, porro debitis officia repellendus iste reiciendis et
-                            dignissimos,
-                            numquam vitae nisi architecto quis quidem quas illo error voluptas voluptate?</p>
-
-                        <div class="food-ingredients hide" data-state="hidden">
-                            <h6 class="card-title light-green-text">Ingredients</h6>
-                            <!-- Could not style through separate style sheet -->
-                            <div id="recipe-ingredients">
-                                <p style="padding:5px 0 5px 0;">ingredient</p>
-                                <p style="padding:5px 0 5px 0;">ingredient</p>
-                                <p style="padding:5px 0 5px 0;">ingredient</p>
-                                <p style="padding:5px 0 5px 0;">ingredient</p>
-                            </div>
-
-                        </div>
-                        <div class="food-instructions hide" data-state="hidden">
-
-                            <h6 class="card-title light-green-text">Instructions</h6>
-                            <!-- Could not style through separate style sheet -->
-                            <div id="recipe-instructions">
-                                <p style=" padding:5px 0 5px 0;">Lorem ipsum dolor, sit amet consectetur
-                                    adipisicing
-                                    elit. Maxime amet, libero vitae ipsum accusantium minima voluptate ut,
-                                    temporibus
-                                    aspernatur, natus nemo maiores doloribus numquam! Perspiciatis assumenda
-                                    obcaecati
-                                    nesciunt minima delectus?</p>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="card-action">
-
-                        <a href="#!" class="ingredients-btn">Ingredients</a>
-                        <a href="#!" class="instructions-btn">Instructions</a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- End recipe Card -->
-
-
+            <div id="col-1" class="col s12 m6"></div>
+            <div id="col-2" class="col s12 m6"></div>
         </div>
 
     </div>
@@ -221,7 +103,7 @@
     <div class="spacer"></div>
 
     <!-- All of our Scripts -->
-    <script src="./assets/javascript/script.js"></script>
+
     <script src="./assets//javascript/navbarLogic.js"></script>
     <script src="./assets//javascript/recipeCardLogic.js"></script>
     <script src="./assets/javascript/myFavoritesLogic.js"></script>
