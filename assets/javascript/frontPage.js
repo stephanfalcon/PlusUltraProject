@@ -49,7 +49,11 @@ $(document).on("click", ".listed-food-recipe", function (evt) {
   $("#recipe-card").removeClass("hide");
 
   infoDump(evt.target.id)
-  $(".favorite-btn").attr("data-food-id", evt.target.id)
+  $(".favorite-btn").attr("data-food-id", evt.target.id);
+  $(".instructions-btn").attr("data-food-id", evt.target.id);
+  $(".ingredients-btn").attr("data-food-id", evt.target.id);
+  $(".food-instructions").attr("id", evt.target.id + "instructions");
+  $(".food-ingredients").attr("id", evt.target.id + "ingredients");
 
 });
 
@@ -71,30 +75,41 @@ function infoDump(id) {
     $("#recipe-image").attr("src", result.image)
 
     // puts ingredients in a table
-    for (i in result.extendedIngredients) {
+    if (result.extendedIngredients.length > 0) {
+      for (i in result.extendedIngredients) {
 
-      ingred = $("<tr>")
-      ingred.append($("<td>").attr("style", "padding:5px 0 5px 0;").text(result.extendedIngredients[i].name))
-      ingred.append($("<td>").attr("style", "padding:5px 0 5px 0;").text(result.extendedIngredients[i].amount))
-      ingred.append($("<td>").attr("style", "padding:5px 0 5px 0;").text(result.extendedIngredients[i].unit))
+        ingred = $("<tr>")
+        ingred.append($("<td>").text(result.extendedIngredients[i].name));
+        // Math.floor(num * 100) / 100)
+        ingred.append($("<td>").text(Math.round(result.extendedIngredients[i].amount * 1000) / 1000));
+        ingred.append($("<td>").text(result.extendedIngredients[i].unit));
 
-      $(".ingredients").append(ingred)
-    }
+        $(".ingredients").append(ingred)
+      }
+    } else {
+      $(".ingredients").append($("<p>").text("N/A"))
+
+    };
 
     // puts instructions in instruction div
-    for (i in result.analyzedInstructions[0].steps) {
-      $(".instructions").append($("<li>").text(result.analyzedInstructions[0].steps[i].step))
-      $(".instructions").append("<br>")
-    }
+    if (result.analyzedInstructions[0].steps.length > 0) {
+      for (i in result.analyzedInstructions[0].steps) {
+        $(".instructions").append($("<li>").text(result.analyzedInstructions[0].steps[i].step))
+        $(".instructions").append("<br>")
+      }
+    } else {
+      $(".instructions").append($("<p>").text("N/A"))
+
+    };
     // $().append(list)
 
     if (result.diets.length > 0) {
       for (i in result.diets) {
-        $(".food-summary").append($("<ul>").attr("style", "padding:5px 0 5px 0;").text(result.diets[i]))
+        $(".food-summary").append($("<p>").text(result.diets[i]))
 
       };
     } else {
-      $(".food-summary").append($("<ul>").attr("style", "padding:5px 0 5px 0;").text("N/A"))
+      $(".food-summary").append($("<p>").text("N/A"))
 
     };
   });

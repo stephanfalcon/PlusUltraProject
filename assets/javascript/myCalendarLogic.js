@@ -93,6 +93,7 @@ $(document).ready(function () {
         $(".listed-food-recipe").removeClass("active");
         $(this).addClass("active");
 
+
         console.log(recipeId)
         console.log(recipeImg)
         console.log(recipeTitle)
@@ -160,18 +161,29 @@ $(document).ready(function () {
             var cardInstr = $(this).attr("data-food-instr");
             var cardTitle = $(this).text();
 
+            console.log(cardId);
+            console.log(cardImg);
+            console.log(cardSum);
+
+
             // $("#recipe-image").attr("src", cardImg);
             $(".food-title").text(cardTitle);
             $(".food-image").attr("src", cardImg);
             $(".food-summary").html(cardSum);
-            $(".ingredients-text").html(cardIng);
-            $(".instructions-text").html(cardInstr);
+            $(".ingredients").html(cardIng);
+            $(".instructions").html(cardInstr);
 
             $(".food-instructions").addClass("hide");
             $(".food-instructions").attr("data-state", "hidden");
+            $(".instructions-btn").attr("data-food-id", cardId);
 
             $(".food-ingredients").addClass("hide");
             $(".food-ingredients").attr("data-state", "hidden");
+            $(".ingredients-btn").attr("data-food-id", cardId);
+
+            $(".food-ingredients").attr("id", cardId + "ingredients");
+            $(".food-instructions").attr("id", cardId + "instructions");
+
 
         }
     });

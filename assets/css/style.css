@@ -9,14 +9,33 @@ cursive;
 font-family: 'Permanent Marker',
 cursive; */
 
+/* Card Styling */
+.ingredients td,
+.ingredients p {
+    padding: 5px 10px 5px 0 !important;
+    line-height: 150% !important;
+}
+
+.instructions li,
+.instructions p {
+    line-height: 150% !important;
+}
+
+.food-summary p {
+    padding: 5px 0px 5px 0 !important;
+}
+
+/* Modal-styling */
+
 .modal-overlay {
     background-color: #33691e;
 }
 
-.card-action {
-    padding: 10px !important;
+.card-action a {
+    margin-right: 15px !important;
 }
 
+/* Navbar Styling */
 #logo {
     height: 40px;
     margin: 10px;
@@ -30,6 +49,13 @@ nav {
     height: 300px;
 }
 
+/* favorite page styling */
+#col-1,
+#col-2 {
+    padding: 0px;
+}
+
+/* Google Fonts */
 .font1 {
     font-family: 'Sedgwick Ave Display',
         cursive;
