@@ -178,10 +178,12 @@ $(document).ready(function () {
 
             $(".food-instructions").addClass("hide");
             $(".food-instructions").attr("data-state", "hidden");
+            $(".food-instructions").attr("id", card + "food-instructions");
             $(".instructions-btn").attr("data-food-id", cardId);
 
             $(".food-ingredients").addClass("hide");
             $(".food-ingredients").attr("data-state", "hidden");
+            $(".food-ingredients").attr("id", card + "food-ingredients");
             $(".ingredients-btn").attr("data-food-id", cardId);
 
             $(".food-ingredients").attr("id", cardId + "ingredients");
@@ -233,6 +235,7 @@ $(document).ready(function () {
             console.log(instructions);
             console.log(recipeId);
             console.log(style);
+            bbbb
 
             var newMeal = {
                 dataFilled: dataFilled,
