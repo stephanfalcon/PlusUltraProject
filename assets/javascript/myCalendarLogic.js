@@ -1,17 +1,26 @@
 $(document).ready(function () {
 
     // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBP2bIcOJ5msjtfLLVspEVYsWoFt7DbK7k",
-        authDomain: "my-food-calendar.firebaseapp.com",
-        databaseURL: "https://my-food-calendar.firebaseio.com",
-        projectId: "my-food-calendar",
-        storageBucket: "my-food-calendar.appspot.com",
-        messagingSenderId: "352501120418"
-    };
-    firebase.initializeApp(config);
+    // Not needed because it is called in RecipeCardLogic
+
+
+    // var config = {
+    //     apiKey: "AIzaSyBP2bIcOJ5msjtfLLVspEVYsWoFt7DbK7k",
+    //     authDomain: "my-food-calendar.firebaseapp.com",
+    //     databaseURL: "https://my-food-calendar.firebaseio.com",
+    //     projectId: "my-food-calendar",
+    //     storageBucket: "my-food-calendar.appspot.com",
+    //     messagingSenderId: "352501120418"
+    // };
+    // firebase.initializeApp(config);
 
     var database = firebase.database();
+
+    var showRecipes = false;
+    var recipeId = "";
+    var recipeImg = "";
+    var recipeTitle = "";
+    var boxId = "";
 
     $("#recipe-area").html("");
 
@@ -33,6 +42,9 @@ $(document).ready(function () {
         newRecipe.attr("href", "#!");
         newRecipe.attr("data-food-id", foodId);
         newRecipe.attr("data-food-img", foodImage);
+        newRecipe.attr("data-food-sum", foodSummary);
+        newRecipe.attr("data-food-ing", foodIngredients);
+        newRecipe.attr("data-food-instr", foodInstructions);
         newRecipe.text(foodTitle);
 
         $("#recipe-area").append(newRecipe);
@@ -41,35 +53,159 @@ $(document).ready(function () {
         console.log("------")
     });
 
+    $("#searchFavs").on("click", function () {
+
+        if (showRecipes === false) {
+            console.log("woohoo");
+            $("#recipe-list").removeClass("hide");
+            $(".box").removeClass("modal-trigger");
+            showRecipes = true;
+            $(this).text("Close")
+        } else {
+            console.log("weehoo");
+            $("#recipe-list").addClass("hide");
+            $(".listed-food-recipe").removeClass("active");
+            addModalTriggers();
+
+            showRecipes = false;
+            $(this).text("Edit Meal Plan")
+
+            recipeId = "";
+            recipeImg = "";
+            recipeTitle = "";
+        }
+    });
+
+    function addModalTriggers() {
+
+        $("div[data-filled='true']").addClass("modal-trigger");
+
+    }
+
     $(document).on("click", ".listed-food-recipe", function () {
-        var recipeId = $(this).attr("data-food-id");
-        var recipeImg = $(this).attr("data-food-img");
-        var recipeTitle = $(this).text();
+        recipeId = $(this).attr("data-food-id");
+        recipeImg = $(this).attr("data-food-img");
+        recipeSum = $(this).attr("data-food-sum");
+        recipeIng = $(this).attr("data-food-ing");
+        recipeInstr = $(this).attr("data-food-instr");
+        recipeTitle = $(this).text();
+
+        $(".listed-food-recipe").removeClass("active");
+        $(this).addClass("active");
+
 
         console.log(recipeId)
         console.log(recipeImg)
         console.log(recipeTitle)
 
-        $(".box").on("click", function () {
+
+    });
+
+    $(".box").on("click", function () {
+
+        if (showRecipes === true && recipeId != "") {
             $(this).html("");
             $(this).attr("data-food-id", recipeId);
+            $(this).attr("data-food-img", recipeImg);
+            $(this).attr("data-food-sum", recipeSum);
+            $(this).attr("data-food-ing", recipeIng);
+            $(this).attr("data-food-instr", recipeInstr);
+
+
+            $(this).css("background-image", "url('" + recipeImg + "')");
+            $(this).css("background-color", "#bfbfbf");
+            $(this).css("background-blend-mode", "multiply");
+
+
+            $(this).attr("data-filled", "true");
 
             var boxTitle = $("<p>");
             boxTitle.addClass("section truncate")
             boxTitle.text(recipeTitle);
 
-            var boxImage = $("<img>");
-            boxImage.addClass("food-pic")
-            boxImage.attr("src", recipeImg);
+            // var boxImage = $("<img>");
+            // boxImage.addClass("food-pic")
+            // boxImage.attr("src", recipeImg);
 
             $(this).append(
                 boxTitle,
-                boxImage
+                // boxImage
             );
-        })
+            console.log("recipe placed")
 
+        } else if (showRecipes === true && recipeId === "") {
+
+            $(this).html("");
+            $(this).attr("data-food-id", "");
+            $(this).attr("data-food-img", "");
+
+            $(this).css("background-image", "url('')");
+            $(this).css("background-color", "");
+            $(this).css("background-blend-mode", "");
+
+            $(this).attr("data-food-sum", "");
+            $(this).attr("data-food-ing", "");
+            $(this).attr("data-food-instr", "");
+            $(this).attr("data-filled", "false");
+
+            console.log("recipe removed");
+
+        } else {
+            boxId = $(this).attr("id");
+            console.log(boxId);
+
+            var cardId = $(this).attr("data-food-id");
+            var cardImg = $(this).attr("data-food-img");
+            var cardSum = $(this).attr("data-food-sum");
+            var cardIng = $(this).attr("data-food-ing");
+            var cardInstr = $(this).attr("data-food-instr");
+            var cardTitle = $(this).text();
+
+            console.log(cardId);
+            console.log(cardImg);
+            console.log(cardSum);
+
+
+            // $("#recipe-image").attr("src", cardImg);
+            $(".food-title").text(cardTitle);
+            $(".food-image").attr("src", cardImg);
+            $(".food-summary").html(cardSum);
+            $(".ingredients").html(cardIng);
+            $(".instructions").html(cardInstr);
+
+            $(".food-instructions").addClass("hide");
+            $(".food-instructions").attr("data-state", "hidden");
+            $(".instructions-btn").attr("data-food-id", cardId);
+
+            $(".food-ingredients").addClass("hide");
+            $(".food-ingredients").attr("data-state", "hidden");
+            $(".ingredients-btn").attr("data-food-id", cardId);
+
+            $(".food-ingredients").attr("id", cardId + "ingredients");
+            $(".food-instructions").attr("id", cardId + "instructions");
+
+
+        }
+    });
+
+    $(".remove-btn").on("click", function () {
+        $("#" + boxId).html("");
+        $("#" + boxId).attr("data-food-id", "");
+
+        $("#" + boxId).css("background-image", "url('')");
+        $("#" + boxId).css("background-color", "");
+        $("#" + boxId).css("background-blend-mode", "");
+
+        $("#" + boxId).attr("data-filled", "false");
+        $("#" + boxId).removeClass("modal-trigger");
+        console.log("recipe removed");
 
     });
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6255ad515c9e1488ba99fb4bda86c32840479dc9
 });

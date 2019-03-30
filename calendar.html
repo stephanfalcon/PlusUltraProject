@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,6 +71,78 @@
             </div>
             <div class="modal-footer">
                 <a href="#!" id="sign-in-btn" class="modal-close btn light-green waves-effect waves-light">Sign In</a>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meal Planner</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/images/green-logo.png" type="image/x-icon">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/calendarStyle.css">
+
+    <!-- JavaScript Links-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- FireBase Link -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+
+</head>
+
+<body>
+    <!-- NavBar -->
+    <nav class="nav-wrapper light-green darken-1">
+
+        <div class="container">
+
+            <a href="./index.html" class="brand-logo"><img src="assets/images/white-logo.png" id="logo"
+                    class="left valign-wrapper"><span class="hide-on-med-and-down font2">Meal Planner</span></a>
+            <a href="#!" class="sidenav-trigger right" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <ul class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./favorites.html">Favorites</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#login" id="navbar-login-top" class="modal-trigger valign-wrapper">Login
+                        <i class="material-icons right">person</i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav light-green darken-1" id="mobile-links">
+        <li><a href="./index.html" class="white-text">Home</a></li>
+        <li><a href="./favorites.html" class="white-text">Favorites</a></li>
+        <li><a href="#" class="white-text">Calendar</a></li>
+        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger white-text">Login</a>
+        </li>
+    </ul>
+
+    <!-- Modal -->
+    <div class="modal" id="login">
+        <div class="modal-content">
+            <i class="material-icons modal-close right">close</i>
+
+            <input id="user-name" type="text" class="validate">
+            <label for="user-name">User Name</label>
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id="sign-in-btn" class="modal-close btn light-green waves-effect waves-light">Sign In</a>
+>>>>>>> 6255ad515c9e1488ba99fb4bda86c32840479dc9
 
             </div>
         </div>
@@ -95,7 +168,12 @@
 
         <div class="container">
 
+<<<<<<< HEAD
             <h2 class="light-green-text">Weekly Plan</h2>
+=======
+        <h2 class="light-green-text font2">Weekly Plan</h2>
+        <div class="section">
+>>>>>>> 6255ad515c9e1488ba99fb4bda86c32840479dc9
 
             <div class="row light-green darken-2 white-text">
                 <div class="xtra-info">
@@ -130,6 +208,7 @@
                 <div class="xtra-info">
                     <div class=" col s8ths s1 box-side"><b>Breakfast</b></div>
                 </div>
+<<<<<<< HEAD
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
@@ -137,11 +216,21 @@
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
+=======
+                <div id="b-sun" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="b-mon" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="b-tue" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="b-wed" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="b-thu" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="b-fri" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="b-sat" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+>>>>>>> 6255ad515c9e1488ba99fb4bda86c32840479dc9
             </div>
             <div class="meal-row row light-green lighten-4">
                 <div class="xtra-info">
                     <div class=" col s8ths s1 box-side"><b>Lunch</b></div>
                 </div>
+<<<<<<< HEAD
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
@@ -149,11 +238,21 @@
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
+=======
+                <div id="l-sun" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="l-mon" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="l-tue" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="l-wed" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="l-thu" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="l-fri" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="l-sat" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+>>>>>>> 6255ad515c9e1488ba99fb4bda86c32840479dc9
             </div>
             <div class="meal-row row light-green lighten-5">
                 <div class="xtra-info">
                     <div class=" col s8ths s1 box-side"><b>Dinner</b></div>
                 </div>
+<<<<<<< HEAD
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
                 <div class="col s8ths s1 box"></div>
@@ -166,6 +265,22 @@
             <div id="recipe-list" class="col s12 m12 l6">
                 <h3>Recipes</h3>
                 <div id="recipe-area" class="collection light-green-text">
+=======
+                <div id="d-sun" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="d-mon" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="d-tue" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="d-wed" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="d-thu" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="d-fri" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+                <div id="d-sat" data-target="food-card" class="col s8ths s1 box" data-filled="false"></div>
+            </div>
+
+            <a id="searchFavs" class="waves-effect waves-light btn orange right section">Edit Meal Plan</a>
+
+            <div id="recipe-list" class="col s12 m12 l6 hide">
+                <h3>Recipes</h3>
+                <div id="recipe-area" class="collection">
+>>>>>>> 6255ad515c9e1488ba99fb4bda86c32840479dc9
                     <a href="#!" class="listed-food-recipe collection-item">Rice Pilaff</a>
                     <a href="#!" class="listed-food-recipe collection-item">Fried Chicken</a>
                     <a href="#!" class="listed-food-recipe collection-item">Spaghetti</a>
@@ -178,10 +293,60 @@
                     <a href="#!" class="listed-food-recipe collection-item">Hot Dogs</a>
                 </div>
             </div>
+<<<<<<< HEAD
             <div style="text-align:center">
                 <img id="quotespace"></img>
             </div>
 
+=======
+        </div>
+
+
+        <!-- Modal Structure -->
+        <div id="food-card" class="modal">
+
+            <div id="recipe-card" class="col m12 modal-content" style="padding: 0px;">
+
+                <div class="card">
+                    <div class="card-image">
+                        <img id="recipe-image" class="food-image" src="./assets/images/spiced-jasmine-rice-pilaf.jpg"
+                            alt="">
+                        <a href="#!" class="remove-btn btn-flat red-text right modal-close" data-faved="false">
+                            Remove this recipe
+                        </a>
+                    </div>
+                    <div class="card-content">
+
+                        <span class="food-title card-title light-green-text text-darken-2">Rice Pilaff</span>
+                        <h6 class="orange-text text-lighten-1">Diet Info</h6>
+                        <p class="food-summary grey-text"></p>
+
+                        <div class="food-ingredients hide" data-state="hidden">
+                            <h6 class="card-title light-green-text">Ingredients</h6>
+                            <!-- Could not style through separate style sheet -->
+                            <div class="ingredients"></div>
+                        </div>
+                        <div class="food-instructions hide" data-state="hidden">
+
+                            <h6 class="card-title light-green-text">Instructions</h6>
+                            <!-- Could not style through separate style sheet -->
+                            <div class="instructions"></div>
+
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="#!" class="ingredients-btn">Ingredients</a>
+                        <a href="#!" class="instructions-btn">Instructions</a>
+                        <a href="#!" class="modal-close black-text right">X</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+>>>>>>> 6255ad515c9e1488ba99fb4bda86c32840479dc9
         </div>
 
         <div class="spacer"></div>
@@ -191,7 +356,10 @@
         <script src="./assets//javascript/navbarLogic.js"></script>
         <script src="./assets//javascript/recipeCardLogic.js"></script>
         <script src="./assets/javascript/myCalendarLogic.js"></script>
+<<<<<<< HEAD
         <script src="./assets/javascript/quotelogic.js"></script>
+=======
+>>>>>>> 6255ad515c9e1488ba99fb4bda86c32840479dc9
 
     </body>
 

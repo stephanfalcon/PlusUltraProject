@@ -1,6 +1,9 @@
 .food-pic {
-    width: 100%
+
+    width: 100%;
+    height: 80%;
 }
+
 
 .box-title {
     height: 60px;
@@ -20,20 +23,36 @@
 .box-side {
     height: 120px;
     border: 1px solid white;
-    ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 
 }
 
 .box-side {
-    display: flex;
-    flex-direction: column;
+
     align-items: center;
-    justify-content: center
+
+}
+
+.box {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px !important;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 .meal-row {
     margin: 5px 0px 5px 0px;
     min-height: 100px;
+
 }
 
 #recipe-area {
@@ -68,4 +87,7 @@
         display: inline;
     }
 
+    .box {
+        padding: 8px !important;
+    }
 }
