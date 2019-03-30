@@ -22,6 +22,8 @@ $(document).ready(function () {
     var recipeTitle = "";
     var boxId = "";
 
+    var mealArray = ["b-sun", "b-mon", "b-tue", "b-wed", "b-thu", "b-fri", "b-sat", "l-sun", "l-mon", "l-tue", "l-wed", "l-thu", "l-fri", "l-sat", "d-sun", "d-mon", "d-tue", "d-wed", "d-thu", "d-fri", "d-sat"];
+
     $("#recipe-area").html("");
 
     // Event listener to add recipes to recipe list
@@ -53,6 +55,7 @@ $(document).ready(function () {
         console.log("------")
     });
 
+    // Allows you to view favoite meals and add them to calendar
     $("#searchFavs").on("click", function () {
 
         if (showRecipes === false) {
@@ -175,10 +178,12 @@ $(document).ready(function () {
 
             $(".food-instructions").addClass("hide");
             $(".food-instructions").attr("data-state", "hidden");
+            $(".food-instructions").attr("id", card + "food-instructions");
             $(".instructions-btn").attr("data-food-id", cardId);
 
             $(".food-ingredients").addClass("hide");
             $(".food-ingredients").attr("data-state", "hidden");
+            $(".food-ingredients").attr("id", card + "food-ingredients");
             $(".ingredients-btn").attr("data-food-id", cardId);
 
             $(".food-ingredients").attr("id", cardId + "ingredients");
@@ -202,10 +207,54 @@ $(document).ready(function () {
 
     });
 
+    // Saves Calendar meal plan to firebase
+    $("#savePlan").on("click", function () {
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 6255ad515c9e1488ba99fb4bda86c32840479dc9
+        console.log(mealArray);
+
+        for (i = 0; i < mealArray.length; i++) {
+            meal = $("#" + mealArray[i]);
+            console.log(mealArray[i]);
+            var dataFilled = meal.attr("data-filled");
+            var title = meal.text();
+            var image = meal.attr("data-food-img");
+            var summary = meal.attr("data-food-sum");
+            var ingredients = meal.attr("data-food-ing");
+            var instructions = meal.attr("data-food-instr");
+            var recipeId = meal.attr("data-food-id");
+            var style = meal.attr("style")
+            // remember modal-trigger
+
+            console.log(dataFilled);
+            console.log(image);
+            console.log(title);
+            console.log(summary);
+            console.log(ingredients);
+            console.log(instructions);
+            console.log(recipeId);
+            console.log(style);
+            bbbb
+
+            var newMeal = {
+                dataFilled: dataFilled,
+                image: image,
+                title: title,
+                summary: summary,
+                ingredients: ingredients,
+                instructions: instructions,
+                recipeId: recipeId,
+                style: style
+            };
+
+            database.ref("/calendar/" + meal).push(newMeal);
+
+            console.log("Plan saved!");
+        };
+
+
+    });
+
+
 });
