@@ -253,6 +253,8 @@ $(document).ready(function () {
             console.log("Plan saved!");
         };
 
+
     });
+
 
 });

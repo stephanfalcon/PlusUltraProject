@@ -35,7 +35,7 @@
         <div class="container">
 
             <a href="./index.html" class="brand-logo"><img src="assets/images/white-logo.png" id="logo"
-                    class="left valign-wrapper"><span class="hide-on-med-and-down font2">Meal Planner</span></a>
+                    class="left valign-wrapper"><span class="hide-on-med-and-down">Meal Planner</span></a>
             <a href="#!" class="sidenav-trigger right" data-target="mobile-links">
                 <i class="material-icons">menu</i>
             </a>
@@ -51,12 +51,11 @@
         </div>
     </nav>
 
-    <ul class="sidenav light-green darken-1" id="mobile-links">
-        <li><a href="./index.html" class="white-text">Home</a></li>
-        <li><a href="./favorites.html" class="white-text">Favorites</a></li>
-        <li><a href="#" class="white-text">Calendar</a></li>
-        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger white-text">Login</a>
-        </li>
+    <ul class="sidenav light-green darken-1 grey-text" id="mobile-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./favorites.html">Favorites</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger">Login</a></li>
     </ul>
 
     <!-- Modal -->
@@ -65,7 +64,7 @@
             <i class="material-icons modal-close right">close</i>
 
             <input id="user-name" type="text" class="validate">
-            <label for="user-name">User Name</label>
+            <label for="user_name">User Name</label>
             <input id="password" type="password" class="validate">
             <label for="password">Password</label>
         </div>
@@ -183,6 +182,10 @@
                     <a href="#!" class="listed-food-recipe collection-item">Hot Dogs</a>
                 </div>
             </div>
+            <div style="text-align:center">
+                <img id="quotespace"></img>
+            </div>
+
         </div>
 
 
@@ -239,6 +242,7 @@
         <script src="./assets//javascript/navbarLogic.js"></script>
         <script src="./assets//javascript/recipeCardLogic.js"></script>
         <script src="./assets/javascript/myCalendarLogic.js"></script>
+        <script src="./assets/javascript/quotelogic.js"></script>
 
 </body>
 
