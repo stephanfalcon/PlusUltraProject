@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Second API Call</title>
+        <!-- JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    </head>
+
+    <body>
+
+        <img id="quotespace"></img>
+
+        <script>
+            $(document).ready(function () {
+                var queryURL = "https://healthruwords.p.rapidapi.com/v1/quotes/?t=Motivational&maxR=1&size=medium"
+
+                // AJAX GET request
+                $.ajax({
+                    url: queryURL,
+                    method: "GET",
+                    headers: {
+                        "X-RapidAPI-Key": "b134db0813mshc069d1de8564e24p12b245jsn7ce80f90cfa9"
+                    }
+                }).then(function (fin) {
+                    for (var i = 0; i < fin.length; i++) {
+                        var newQuote = fin[i].media
+                        $("#quotespace").attr("src", newQuote);
+                        $("#quotespace").html(newQuote);
+
+                    };
+                    console.log(fin);
+
+
+
+                });
+                // End of AJAX request
+
+
+            });
+
+        </script>
+
+    </body>
+
+</html>
