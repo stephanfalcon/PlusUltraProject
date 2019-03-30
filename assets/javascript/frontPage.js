@@ -8,7 +8,9 @@ $("#search-btn").on("click", function () {
   $("#results").removeClass("hide");
 
   var searchCriteria = $("#food-item").val().trim();
-  search(searchCriteria);
+  var refineCriteria = $("#more-options .selected").text().trim();
+  console.log(refineCriteria);
+  search(searchCriteria, refineCriteria);
   return false;
 });
 
@@ -16,8 +18,8 @@ $("#search-btn").on("click", function () {
 var searchResults = [];
 
 // a function that contains our ajax call and generates search based on users input (criteria)
-function search(criteria) {
-  var queryURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=${criteria}`;
+function search(search, refine) {
+  var queryURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=${search}&diet=${refine}`;
   $("#recipe-area").empty()
   // Performing our AJAX GET request
   $.ajax({
