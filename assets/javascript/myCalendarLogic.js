@@ -22,6 +22,8 @@ $(document).ready(function () {
     var recipeTitle = "";
     var boxId = "";
 
+    var mealArray = ["b-sun", "b-mon", "b-tue", "b-wed", "b-thu", "b-fri", "b-sat", "l-sun", "l-mon", "l-tue", "l-wed", "l-thu", "l-fri", "l-sat", "d-sun", "d-mon", "d-tue", "d-wed", "d-thu", "d-fri", "d-sat"];
+
     $("#recipe-area").html("");
 
     // Event listener to add recipes to recipe list
@@ -53,6 +55,7 @@ $(document).ready(function () {
         console.log("------")
     });
 
+    // Allows you to view favoite meals and add them to calendar
     $("#searchFavs").on("click", function () {
 
         if (showRecipes === false) {
@@ -202,7 +205,51 @@ $(document).ready(function () {
 
     });
 
+    // Saves Calendar meal plan to firebase
+    $("#savePlan").on("click", function () {
 
 
+
+        console.log(mealArray);
+
+        for (i = 0; i < mealArray.length; i++) {
+            meal = $("#" + mealArray[i]);
+            console.log(mealArray[i]);
+            var dataFilled = meal.attr("data-filled");
+            var title = meal.text();
+            var image = meal.attr("data-food-img");
+            var summary = meal.attr("data-food-sum");
+            var ingredients = meal.attr("data-food-ing");
+            var instructions = meal.attr("data-food-instr");
+            var recipeId = meal.attr("data-food-id");
+            var style = meal.attr("style")
+            // remember modal-trigger
+
+            console.log(dataFilled);
+            console.log(image);
+            console.log(title);
+            console.log(summary);
+            console.log(ingredients);
+            console.log(instructions);
+            console.log(recipeId);
+            console.log(style);
+
+            var newMeal = {
+                dataFilled: dataFilled,
+                image: image,
+                title: title,
+                summary: summary,
+                ingredients: ingredients,
+                instructions: instructions,
+                recipeId: recipeId,
+                style: style
+            };
+
+            database.ref("/calendar/" + meal).push(newMeal);
+
+            console.log("Plan saved!");
+        };
+
+    });
 
 });

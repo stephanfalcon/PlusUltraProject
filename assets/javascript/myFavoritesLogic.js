@@ -43,6 +43,8 @@ $(document).ready(function () {
         var newImg = $("<img>");
         newImg.addClass("food-image");
         newImg.attr("src", foodImage);
+        ///////////////////////////
+        newImg.attr("id", foodId + "image");
 
 
         var newFavBtn = $("<a>");
@@ -79,11 +81,16 @@ $(document).ready(function () {
         var newSummary = $("<p>");
         newSummary.addClass("food-summary grey-text");
         newSummary.html(foodSummary);
+        ///////////////////////////
+        newSummary.attr("id", foodId + "summary");
+
 
         var newIngDiv = $("<div>");
         newIngDiv.addClass("food-ingredients hide");
-        newIngDiv.attr("id", foodId + "ingredients")
+
         newIngDiv.attr("data-state", "hidden");
+        ///////////////////////////
+        newIngDiv.attr("id", foodId + "food-ingredients");
 
         var newH6Ing = $("<h6>");
         newH6Ing.addClass("card-title light-green-text");
@@ -91,12 +98,15 @@ $(document).ready(function () {
 
         var newIngTable = $("<table>");
         newIngTable.addClass("ingredients");
+        newIngTable.attr("id", foodId + "ingredients");
         newIngTable.html(foodIngredients);
 
         var newInstrDiv = $("<div>");
         newInstrDiv.addClass("food-instructions hide");
-        newInstrDiv.attr("id", foodId + "instructions")
+
         newInstrDiv.attr("data-state", "hidden");
+        ///////////////////////////
+        newInstrDiv.attr("id", foodId + "food-instructions");
 
         var newH6Instr = $("<h6>");
         newH6Instr.addClass("card-title light-green-text");
@@ -104,6 +114,7 @@ $(document).ready(function () {
 
         var newInstrText = $("<table>");
         newInstrText.addClass("instructions");
+        newInstrText.attr("id", foodId + "instructions");
         newInstrText.html(foodInstructions);
 
         // Append Card Content

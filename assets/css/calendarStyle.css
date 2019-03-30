@@ -61,6 +61,11 @@
     overflow-y: scroll;
 }
 
+#savePlan,
+#searchFavs {
+    margin: 10px;
+}
+
 /* splits calendar into even 8ths normally or 7ths when small */
 .s8ths {
     margin-left: auto;
