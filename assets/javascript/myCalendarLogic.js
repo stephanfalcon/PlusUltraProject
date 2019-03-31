@@ -292,5 +292,63 @@ $(document).ready(function () {
 
     });
 
+    database.ref("/calendar").on("child_added", function (snapshot) {
+
+        var newKey = $("#" + snapshot.key);
+        console.log(newKey);
+
+        var newFilled = snapshot.val().dataFilled;
+        var newImage = snapshot.val().image;
+        var newTitle = snapshot.val().title;
+        var newSummary = snapshot.val().summary;
+        var newIng = snapshot.val().ingredients;
+        var newInstr = snapshot.val().instructions;
+        var newId = snapshot.val().recipeId;
+        var newStyle = snapshot.val().style;
+        console.log(newFilled);
+
+        // newKey.attr("data-filled", newFilled);
+        // newKey.html(newTitle);
+        // newKey.attr("data-food-img", newImage);
+        // newKey.attr("data-food-sum", newSummary);
+        // newKey.attr("data-food-ing", newIng);
+        // newKey.attr("data-food-instr", newInstr);
+        // newKey.attr("data-food-id", newId);
+        // newKey.attr("style", newStyle)
+
+        newKey.html("");
+        newKey.attr("data-food-id", newId);
+        newKey.attr("data-food-img", newImage);
+        newKey.attr("data-food-sum", newSummary);
+        newKey.attr("data-food-ing", newIng);
+        newKey.attr("data-food-instr", newInstr);
+
+
+        newKey.attr("style", newStyle)
+
+
+        newKey.attr("data-filled", newFilled);
+
+        var boxTitle = $("<p>");
+        boxTitle.addClass("section truncate")
+        boxTitle.text(newTitle);
+
+        if (newFilled === "true") {
+            newKey.addClass("modal-trigger");
+        } else {
+            newKey.removeClass("modal-trigger");
+        }
+
+        var boxImage = $("<img>");
+        boxImage.addClass("food-pic")
+        boxImage.attr("src", recipeImg);
+
+        newKey.append(
+            boxTitle,
+            // boxImage
+        );
+        console.log("recipe placed")
+
+    });
 
 });
