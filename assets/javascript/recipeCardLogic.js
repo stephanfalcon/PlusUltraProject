@@ -24,12 +24,14 @@ $(document).ready(function () {
             $(this).addClass("pink");
             $(this).attr("data-faved", "true");
 
-            var image = $("#recipe-image").attr("src");
-            var title = $(".food-title").text();
-            var summary = $(".food-summary").html();
-            var ingredients = $(".ingredients").html();
-            var instructions = $(".instructions").html();
+            /////////////////////////////
             var recipeId = $(this).attr("data-food-id");
+            var image = $("#" + recipeId + "image").attr("src");
+            var title = $("#" + recipeId + "title").text();
+            var summary = $("#" + recipeId + "summary").html();
+            var ingredients = $("#" + recipeId + "ingredients").html();
+            var instructions = $("#" + recipeId + "instructions").html();
+
 
             // console.log(image);
             // console.log(title);
@@ -69,14 +71,19 @@ $(document).ready(function () {
     $(document).on("click", ".ingredients-btn", function () {
         var foodId = $(this).attr("data-food-id");
 
+<<<<<<< HEAD
         var ingredientsState = $("#" + foodId + "ingredients").attr("data-state");
         // console.log(ingredientsState);
+=======
+        var ingredientsState = $("#" + foodId + "food-ingredients").attr("data-state");
+        console.log(ingredientsState);
+>>>>>>> 2d0976245c0200769c7bdd6e30d984b215594451
         if (ingredientsState === "hidden") {
-            $("#" + foodId + "ingredients").removeClass("hide");
-            $("#" + foodId + "ingredients").attr("data-state", "shown");
+            $("#" + foodId + "food-ingredients").removeClass("hide");
+            $("#" + foodId + "food-ingredients").attr("data-state", "shown");
         } else {
-            $("#" + foodId + "ingredients").addClass("hide");
-            $("#" + foodId + "ingredients").attr("data-state", "hidden");
+            $("#" + foodId + "food-ingredients").addClass("hide");
+            $("#" + foodId + "food-ingredients").attr("data-state", "hidden");
         };
     });
 
@@ -86,14 +93,19 @@ $(document).ready(function () {
 
         var foodId = $(this).attr("data-food-id");
 
+<<<<<<< HEAD
         var instructionsState = $("#" + foodId + "instructions").attr("data-state");
         // console.log(instructionsState);
+=======
+        var instructionsState = $("#" + foodId + "food-instructions").attr("data-state");
+        console.log(instructionsState);
+>>>>>>> 2d0976245c0200769c7bdd6e30d984b215594451
         if (instructionsState === "hidden") {
-            $("#" + foodId + "instructions").removeClass("hide");
-            $("#" + foodId + "instructions").attr("data-state", "shown");
+            $("#" + foodId + "food-instructions").removeClass("hide");
+            $("#" + foodId + "food-instructions").attr("data-state", "shown");
         } else {
-            $("#" + foodId + "instructions").addClass("hide");
-            $("#" + foodId + "instructions").attr("data-state", "hidden");
+            $("#" + foodId + "food-instructions").addClass("hide");
+            $("#" + foodId + "food-instructions").attr("data-state", "hidden");
         };
     });
 

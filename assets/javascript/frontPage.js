@@ -8,7 +8,9 @@ $("#search-btn").on("click", function () {
   $("#results").removeClass("hide");
 
   var searchCriteria = $("#food-item").val().trim();
-  search(searchCriteria);
+  var refineCriteria = $("#more-options .selected").text().trim();
+  console.log(refineCriteria);
+  search(searchCriteria, refineCriteria);
   return false;
 });
 
@@ -16,8 +18,8 @@ $("#search-btn").on("click", function () {
 var searchResults = [];
 
 // a function that contains our ajax call and generates search based on users input (criteria)
-function search(criteria) {
-  var queryURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=${criteria}`;
+function search(search, refine) {
+  var queryURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=${search}&diet=${refine}`;
   $("#recipe-area").empty()
   // Performing our AJAX GET request
   $.ajax({
@@ -52,8 +54,8 @@ $(document).on("click", ".listed-food-recipe", function (evt) {
   $(".favorite-btn").attr("data-food-id", evt.target.id);
   $(".instructions-btn").attr("data-food-id", evt.target.id);
   $(".ingredients-btn").attr("data-food-id", evt.target.id);
-  $(".food-instructions").attr("id", evt.target.id + "instructions");
-  $(".food-ingredients").attr("id", evt.target.id + "ingredients");
+  $(".food-instructions").attr("id", evt.target.id + "food-instructions");
+  $(".food-ingredients").attr("id", evt.target.id + "food-ingredients");
 
 });
 
@@ -72,7 +74,13 @@ function infoDump(id) {
 
     // changes title and image
     $(".food-title").text(result.title)
-    $("#recipe-image").attr("src", result.image)
+    ///////////////////////////
+    $(".food-image").attr("src", result.image);
+    $(".food-image").attr("id", result.id + "image");
+    $(".food-title").attr("id", result.id + "title");
+    $(".food-summary").attr("id", result.id + "summary");
+    $(".ingredients").attr("id", result.id + "ingredients");
+    $(".instructions").attr("id", result.id + "instructions");
 
     // puts ingredients in a table
     if (result.extendedIngredients.length > 0) {
