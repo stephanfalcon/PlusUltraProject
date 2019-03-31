@@ -22,7 +22,7 @@ $(document).ready(function () {
     var recipeTitle = "";
     var boxId = "";
 
-    var mealArray = ["b-sun", "b-mon", "b-tue", "b-wed", "b-thu", "b-fri", "b-sat", "l-sun", "l-mon", "l-tue", "l-wed", "l-thu", "l-fri", "l-sat", "d-sun", "d-mon", "d-tue", "d-wed", "d-thu", "d-fri", "d-sat"];
+    var mealArray = ["bSun", "bMon", "bTue", "bWed", "bThu", "bFri", "bSat", "lSun", "lMon", "lTue", "lWed", "lThu", "lFri", "lSat", "dSun", "dMon", "dTue", "dWed", "dThu", "dFri", "dSat"];
 
     $("#recipe-area").html("");
 
@@ -178,17 +178,15 @@ $(document).ready(function () {
 
             $(".food-instructions").addClass("hide");
             $(".food-instructions").attr("data-state", "hidden");
-            $(".food-instructions").attr("id", card + "food-instructions");
+            $(".food-instructions").attr("id", cardId + "food-instructions");
+            $(".instructions").attr("id", cardId + "instructions");
             $(".instructions-btn").attr("data-food-id", cardId);
 
             $(".food-ingredients").addClass("hide");
             $(".food-ingredients").attr("data-state", "hidden");
-            $(".food-ingredients").attr("id", card + "food-ingredients");
+            $(".food-ingredients").attr("id", cardId + "food-ingredients");
+            $(".ingredients").attr("id", cardId + "ingredients");
             $(".ingredients-btn").attr("data-food-id", cardId);
-
-            $(".food-ingredients").attr("id", cardId + "ingredients");
-            $(".food-instructions").attr("id", cardId + "instructions");
-
 
         }
     });
@@ -218,6 +216,9 @@ $(document).ready(function () {
             meal = $("#" + mealArray[i]);
             console.log(mealArray[i]);
             var dataFilled = meal.attr("data-filled");
+            var isFilled = meal.attr("data-filled");
+
+
             var title = meal.text();
             var image = meal.attr("data-food-img");
             var summary = meal.attr("data-food-sum");
@@ -235,7 +236,6 @@ $(document).ready(function () {
             console.log(instructions);
             console.log(recipeId);
             console.log(style);
-            bbbb
 
             var newMeal = {
                 dataFilled: dataFilled,
@@ -248,9 +248,14 @@ $(document).ready(function () {
                 style: style
             };
 
-            database.ref("/calendar/" + meal).push(newMeal);
+            if (isFilled === "true") {
 
-            console.log("Plan saved!");
+                database.ref("/calendar/" + mealArray[i]).push(newMeal);
+
+                console.log("Plan saved!");
+            } else {
+                console.log("nada");
+            }
         };
 
 
