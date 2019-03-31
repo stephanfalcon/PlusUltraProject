@@ -31,8 +31,8 @@ $(document).ready(function () {
     //Be able to search ingredient item, and it pull up 10 recipes from API 
     // on "click" event but submit since I couldn't change type on input
     console.log("here")
-    $("#search-btn").on("click", function () {
-
+    $("#search-btn").on("click", function (event) {
+        event.preventDefault();
         var searchCriteria = $("#food-item").val().trim();
         var refineCriteria = $("#more-options .selected").text().trim();
         console.log(refineCriteria);
