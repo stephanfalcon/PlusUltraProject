@@ -127,6 +127,7 @@
 
             </form>
         </div>
+
         <div id="more-options" class="row hide">
             <div class="input-field col s6 m4">
                 <select class="col">
@@ -149,7 +150,7 @@
 
 
         <!-- End Search Bar -->
-
+        <!-- hide -->
         <div id="results" class="row hide">
             <div class="row">
                 <h3 class="center-align font2 orange-text text-lighten-1">Recipes</h3>
@@ -164,12 +165,13 @@
             <!-- End Meal List -->
 
             <!-- Recipe Card -->
+            <!-- hide -->
             <div id="recipe-card" class="col m12 l6 hide" data-id="">
 
                 <div class="card">
                     <div class="card-image">
                         <img id="recipe-image" class="food-image" src="" alt="">
-                        <a href="#!" class="favorite-btn btn-floating grey pulse halfway-fab" data-faved="false">
+                        <a href="#!" class="favorite-btn btn-floating halfway-fab" data-faved="false">
                             <i class="material-icons">favorite</i>
                         </a>
                     </div>
@@ -181,7 +183,6 @@
 
                         <div class="food-ingredients hide" data-state="hidden">
                             <h6 class="card-title light-green-text">Ingredients</h6>
-                            <!-- Could not style through separate style sheet -->
 
                             <table class="ingredients">
                                 <tr>
@@ -193,7 +194,7 @@
                         <div class="food-instructions hide" data-state="hidden">
 
                             <h6 class="card-title light-green-text">Instructions</h6>
-                            <!-- Could not style through separate style sheet -->
+
                             <div class="instructions"></div>
 
 
@@ -237,11 +238,11 @@
     </div>
 
     <!-- All of our Scripts -->
-    <script src="./assets/javascript/frontPage.js"></script>
     <script src="./assets//javascript/navbarLogic.js"></script>
     <script src="./assets//javascript/recipeCardLogic.js"></script>
     <script src="./assets/javascript/randomFoodJoke.js"></script>
     <script src="./assets/javascript/randomFoodTrivia.js"></script>
+    <script src="./assets/javascript/homePage.js"></script>
 
 </body>
 

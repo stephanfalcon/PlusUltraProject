@@ -62,6 +62,7 @@ $(document).ready(function () {
             console.log("woohoo");
             $("#recipe-list").removeClass("hide");
             $(".box").removeClass("modal-trigger");
+            $("#empty").addClass("active");
             showRecipes = true;
             $(this).text("Close")
         } else {
@@ -208,8 +209,6 @@ $(document).ready(function () {
     // Saves Calendar meal plan to firebase
     $("#savePlan").on("click", function () {
 
-
-
         console.log(mealArray);
 
         for (i = 0; i < mealArray.length; i++) {
@@ -218,48 +217,138 @@ $(document).ready(function () {
             var dataFilled = meal.attr("data-filled");
             var isFilled = meal.attr("data-filled");
 
-
-            var title = meal.text();
-            var image = meal.attr("data-food-img");
-            var summary = meal.attr("data-food-sum");
-            var ingredients = meal.attr("data-food-ing");
-            var instructions = meal.attr("data-food-instr");
-            var recipeId = meal.attr("data-food-id");
-            var style = meal.attr("style")
-            // remember modal-trigger
-
-            console.log(dataFilled);
-            console.log(image);
-            console.log(title);
-            console.log(summary);
-            console.log(ingredients);
-            console.log(instructions);
-            console.log(recipeId);
-            console.log(style);
-
-            var newMeal = {
-                dataFilled: dataFilled,
-                image: image,
-                title: title,
-                summary: summary,
-                ingredients: ingredients,
-                instructions: instructions,
-                recipeId: recipeId,
-                style: style
-            };
-
             if (isFilled === "true") {
 
-                database.ref("/calendar/" + mealArray[i]).push(newMeal);
+                var title = meal.text();
+                var image = meal.attr("data-food-img");
+                var summary = meal.attr("data-food-sum");
+                var ingredients = meal.attr("data-food-ing");
+                var instructions = meal.attr("data-food-instr");
+                var recipeId = meal.attr("data-food-id");
+                var style = meal.attr("style")
+                // remember modal-trigger
+
+                console.log(dataFilled);
+                console.log(image);
+                console.log(title);
+                console.log(summary);
+                console.log(ingredients);
+                console.log(instructions);
+                console.log(recipeId);
+                console.log(style);
+
+                var newMeal = {
+                    dataFilled: dataFilled,
+                    image: image,
+                    title: title,
+                    summary: summary,
+                    ingredients: ingredients,
+                    instructions: instructions,
+                    recipeId: recipeId,
+                    style: style
+                };
+
+
+                database.ref("/calendar").child(mealArray[i]).set(newMeal);
 
                 console.log("Plan saved!");
             } else {
-                console.log("nada");
+
+                var title = ""
+                var image = ""
+                var summary = ""
+                var ingredients = ""
+                var instructions = ""
+                var recipeId = ""
+                var style = ""
+                // remember modal-trigger
+
+                console.log(dataFilled);
+                console.log(image);
+                console.log(title);
+                console.log(summary);
+                console.log(ingredients);
+                console.log(instructions);
+                console.log(recipeId);
+                console.log(style);
+
+                var newMeal = {
+                    dataFilled: dataFilled,
+                    image: image,
+                    title: title,
+                    summary: summary,
+                    ingredients: ingredients,
+                    instructions: instructions,
+                    recipeId: recipeId,
+                    style: style
+                };
+
+                database.ref("/calendar").child(mealArray[i]).set(newMeal);
+
+                console.log("Empty Day");
             }
         };
 
 
     });
 
+    database.ref("/calendar").on("child_added", function (snapshot) {
+
+        var newKey = $("#" + snapshot.key);
+        console.log(newKey);
+
+        var newFilled = snapshot.val().dataFilled;
+        var newImage = snapshot.val().image;
+        var newTitle = snapshot.val().title;
+        var newSummary = snapshot.val().summary;
+        var newIng = snapshot.val().ingredients;
+        var newInstr = snapshot.val().instructions;
+        var newId = snapshot.val().recipeId;
+        var newStyle = snapshot.val().style;
+        console.log(newFilled);
+
+        // newKey.attr("data-filled", newFilled);
+        // newKey.html(newTitle);
+        // newKey.attr("data-food-img", newImage);
+        // newKey.attr("data-food-sum", newSummary);
+        // newKey.attr("data-food-ing", newIng);
+        // newKey.attr("data-food-instr", newInstr);
+        // newKey.attr("data-food-id", newId);
+        // newKey.attr("style", newStyle)
+
+        newKey.html("");
+        newKey.attr("data-food-id", newId);
+        newKey.attr("data-food-img", newImage);
+        newKey.attr("data-food-sum", newSummary);
+        newKey.attr("data-food-ing", newIng);
+        newKey.attr("data-food-instr", newInstr);
+
+
+        newKey.attr("style", newStyle)
+
+
+        newKey.attr("data-filled", newFilled);
+
+        var boxTitle = $("<p>");
+        boxTitle.addClass("section truncate")
+        boxTitle.text(newTitle);
+
+        if (newFilled === "true") {
+            newKey.addClass("modal-trigger");
+        } else {
+            newKey.removeClass("modal-trigger");
+        }
+
+        var boxImage = $("<img>");
+        boxImage.addClass("food-pic")
+        boxImage.attr("src", recipeImg);
+
+        newKey.append(
+            boxTitle,
+            // boxImage
+        );
+        console.log("recipe placed")
+
+    });
 
 });
