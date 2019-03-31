@@ -52,10 +52,10 @@
     </nav>
 
     <ul class="sidenav light-green darken-1 grey-text" id="mobile-links">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./favorites.html">Favorites</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger">Login</a></li>
+        <li><a href="./index.html" class="white-text">Home</a></li>
+        <li><a href="./favorites.html" class="white-text">Favorites</a></li>
+        <li><a href="#" class="white-text">Calendar</a></li>
+        <li><a href="#login" id="navbar-login-side" class="navbar-login modal-trigger white-text">Login</a></li>
     </ul>
 
     <!-- Modal -->
@@ -169,17 +169,19 @@
 
             <div id="recipe-list" class="col s12 m12 l6 hide">
                 <h3>Recipes</h3>
-                <div id="recipe-area" class="collection">
-                    <a href="#!" class="listed-food-recipe collection-item">Rice Pilaff</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Fried Chicken</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Spaghetti</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Lasagna</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Turkey Sandwich</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Chicken Salad</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Pot Roast</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Eggs and Bacon</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Toast</a>
-                    <a href="#!" class="listed-food-recipe collection-item">Hot Dogs</a>
+                <div id="recipe-collection" class="collection">
+                    <a id="empty" href="#!" class="listed-food-recipe collection-item" data-food-id="">- Empty -</a>
+                    <span id="recipe-area">
+                        <a href="#!" class="listed-food-recipe collection-item">Fried Chicken</a>
+                        <a href="#!" class="listed-food-recipe collection-item">Spaghetti</a>
+                        <a href="#!" class="listed-food-recipe collection-item">Lasagna</a>
+                        <a href="#!" class="listed-food-recipe collection-item">Turkey Sandwich</a>
+                        <a href="#!" class="listed-food-recipe collection-item">Chicken Salad</a>
+                        <a href="#!" class="listed-food-recipe collection-item">Pot Roast</a>
+                        <a href="#!" class="listed-food-recipe collection-item">Eggs and Bacon</a>
+                        <a href="#!" class="listed-food-recipe collection-item">Toast</a>
+                        <a href="#!" class="listed-food-recipe collection-item">Hot Dogs</a>
+                    </span>
                 </div>
             </div>
             <div style="text-align:center">

@@ -62,6 +62,7 @@ $(document).ready(function () {
             console.log("woohoo");
             $("#recipe-list").removeClass("hide");
             $(".box").removeClass("modal-trigger");
+            $("#empty").addClass("active");
             showRecipes = true;
             $(this).text("Close")
         } else {

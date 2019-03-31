@@ -57,7 +57,8 @@ $(document).ready(function () {
 
             console.log("Recipe Added");
 
-
+            // This prevents duplicate cards when re-favoriting of the favorites page
+            $("#" + recipeId + "div").remove();
 
         } else {
             $(this).removeClass("pink");
