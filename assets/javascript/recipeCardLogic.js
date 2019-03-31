@@ -62,7 +62,7 @@ $(document).ready(function () {
             $(this).addClass("grey pulse");
             $(this).attr("data-faved", "false");
             
-            // database.ref("/recipes").child()
+            database.ref("/recipes").child(recipeId).remove()
         };
     });
 
@@ -71,13 +71,8 @@ $(document).ready(function () {
     $(document).on("click", ".ingredients-btn", function () {
         var foodId = $(this).attr("data-food-id");
 
-<<<<<<< HEAD
-        var ingredientsState = $("#" + foodId + "ingredients").attr("data-state");
-        // console.log(ingredientsState);
-=======
         var ingredientsState = $("#" + foodId + "food-ingredients").attr("data-state");
         console.log(ingredientsState);
->>>>>>> 2d0976245c0200769c7bdd6e30d984b215594451
         if (ingredientsState === "hidden") {
             $("#" + foodId + "food-ingredients").removeClass("hide");
             $("#" + foodId + "food-ingredients").attr("data-state", "shown");
@@ -93,13 +88,8 @@ $(document).ready(function () {
 
         var foodId = $(this).attr("data-food-id");
 
-<<<<<<< HEAD
-        var instructionsState = $("#" + foodId + "instructions").attr("data-state");
-        // console.log(instructionsState);
-=======
         var instructionsState = $("#" + foodId + "food-instructions").attr("data-state");
         console.log(instructionsState);
->>>>>>> 2d0976245c0200769c7bdd6e30d984b215594451
         if (instructionsState === "hidden") {
             $("#" + foodId + "food-instructions").removeClass("hide");
             $("#" + foodId + "food-instructions").attr("data-state", "shown");
