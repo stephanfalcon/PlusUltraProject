@@ -209,8 +209,6 @@ $(document).ready(function () {
     // Saves Calendar meal plan to firebase
     $("#savePlan").on("click", function () {
 
-
-
         console.log(mealArray);
 
         for (i = 0; i < mealArray.length; i++) {
@@ -219,43 +217,75 @@ $(document).ready(function () {
             var dataFilled = meal.attr("data-filled");
             var isFilled = meal.attr("data-filled");
 
-
-            var title = meal.text();
-            var image = meal.attr("data-food-img");
-            var summary = meal.attr("data-food-sum");
-            var ingredients = meal.attr("data-food-ing");
-            var instructions = meal.attr("data-food-instr");
-            var recipeId = meal.attr("data-food-id");
-            var style = meal.attr("style")
-            // remember modal-trigger
-
-            console.log(dataFilled);
-            console.log(image);
-            console.log(title);
-            console.log(summary);
-            console.log(ingredients);
-            console.log(instructions);
-            console.log(recipeId);
-            console.log(style);
-
-            var newMeal = {
-                dataFilled: dataFilled,
-                image: image,
-                title: title,
-                summary: summary,
-                ingredients: ingredients,
-                instructions: instructions,
-                recipeId: recipeId,
-                style: style
-            };
-
             if (isFilled === "true") {
 
-                database.ref("/calendar/" + mealArray[i]).push(newMeal);
+                var title = meal.text();
+                var image = meal.attr("data-food-img");
+                var summary = meal.attr("data-food-sum");
+                var ingredients = meal.attr("data-food-ing");
+                var instructions = meal.attr("data-food-instr");
+                var recipeId = meal.attr("data-food-id");
+                var style = meal.attr("style")
+                // remember modal-trigger
+
+                console.log(dataFilled);
+                console.log(image);
+                console.log(title);
+                console.log(summary);
+                console.log(ingredients);
+                console.log(instructions);
+                console.log(recipeId);
+                console.log(style);
+
+                var newMeal = {
+                    dataFilled: dataFilled,
+                    image: image,
+                    title: title,
+                    summary: summary,
+                    ingredients: ingredients,
+                    instructions: instructions,
+                    recipeId: recipeId,
+                    style: style
+                };
+
+
+                database.ref("/calendar").child(mealArray[i]).set(newMeal);
 
                 console.log("Plan saved!");
             } else {
-                console.log("nada");
+
+                var title = ""
+                var image = ""
+                var summary = ""
+                var ingredients = ""
+                var instructions = ""
+                var recipeId = ""
+                var style = ""
+                // remember modal-trigger
+
+                console.log(dataFilled);
+                console.log(image);
+                console.log(title);
+                console.log(summary);
+                console.log(ingredients);
+                console.log(instructions);
+                console.log(recipeId);
+                console.log(style);
+
+                var newMeal = {
+                    dataFilled: dataFilled,
+                    image: image,
+                    title: title,
+                    summary: summary,
+                    ingredients: ingredients,
+                    instructions: instructions,
+                    recipeId: recipeId,
+                    style: style
+                };
+
+                database.ref("/calendar").child(mealArray[i]).set(newMeal);
+
+                console.log("Empty Day");
             }
         };
 
