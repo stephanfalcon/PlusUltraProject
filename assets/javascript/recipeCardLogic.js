@@ -12,13 +12,13 @@ $(document).ready(function () {
     firebase.initializeApp(config);
 
     var database = firebase.database();
-
+    console.log(database.key)
     // Basic favorite button color toggle
 
     $(document).on("click", ".favorite-btn", function () {
 
         var favStatus = $(this).attr("data-faved");
-        console.log(favStatus);
+        // console.log(favStatus);
         if (favStatus === "false") {
             $(this).removeClass("grey pulse");
             $(this).addClass("pink");
@@ -31,12 +31,12 @@ $(document).ready(function () {
             var instructions = $(".instructions").html();
             var recipeId = $(this).attr("data-food-id");
 
-            console.log(image);
-            console.log(title);
-            console.log(summary);
-            console.log(ingredients);
-            console.log(instructions);
-            console.log(recipeId);
+            // console.log(image);
+            // console.log(title);
+            // console.log(summary);
+            // console.log(ingredients);
+            // console.log(instructions);
+            // console.log(recipeId);
 
             var newRecipe = {
                 image: image,
@@ -47,9 +47,11 @@ $(document).ready(function () {
                 recipeId: recipeId
             };
 
-            database.ref("/recipes").push(newRecipe);
+            database.ref("/recipes").push(newRecipe).then((snap)=>{
+                console.log(snap)
+            });
 
-            console.log("Recipe Added");
+            // console.log("Recipe Added");
 
 
 
@@ -57,6 +59,8 @@ $(document).ready(function () {
             $(this).removeClass("pink");
             $(this).addClass("grey pulse");
             $(this).attr("data-faved", "false");
+            
+            // database.ref("/recipes").child()
         };
     });
 
@@ -66,7 +70,7 @@ $(document).ready(function () {
         var foodId = $(this).attr("data-food-id");
 
         var ingredientsState = $("#" + foodId + "ingredients").attr("data-state");
-        console.log(ingredientsState);
+        // console.log(ingredientsState);
         if (ingredientsState === "hidden") {
             $("#" + foodId + "ingredients").removeClass("hide");
             $("#" + foodId + "ingredients").attr("data-state", "shown");
@@ -83,7 +87,7 @@ $(document).ready(function () {
         var foodId = $(this).attr("data-food-id");
 
         var instructionsState = $("#" + foodId + "instructions").attr("data-state");
-        console.log(instructionsState);
+        // console.log(instructionsState);
         if (instructionsState === "hidden") {
             $("#" + foodId + "instructions").removeClass("hide");
             $("#" + foodId + "instructions").attr("data-state", "shown");
