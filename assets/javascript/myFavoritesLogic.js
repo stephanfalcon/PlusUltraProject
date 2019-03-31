@@ -31,6 +31,7 @@ $(document).ready(function () {
 
         var newRecipeCol = $("<div>");
         newRecipeCol.addClass("col s12");
+        newRecipeCol.attr("id", foodId + "div")
 
         var newCardDiv = $("<div>");
         newCardDiv.addClass("card");
@@ -72,6 +73,7 @@ $(document).ready(function () {
 
         var newTitle = $("<span>");
         newTitle.addClass("food-title card-title light-green-text text-darken-2");
+        newTitle.attr("id", foodId + "title")
         newTitle.text(foodTitle);
 
         var newH6Sum = $("<h6>");
@@ -189,4 +191,5 @@ $(document).ready(function () {
 
         console.log("------")
     });
+
 });

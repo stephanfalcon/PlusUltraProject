@@ -18,14 +18,17 @@ $(document).ready(function () {
     $(document).on("click", ".favorite-btn", function () {
 
         var favStatus = $(this).attr("data-faved");
-        // console.log(favStatus);
+
+        var recipeId = $(this).attr("data-food-id");
+        console.log(favStatus);
+
         if (favStatus === "false") {
             $(this).removeClass("grey pulse");
             $(this).addClass("pink");
             $(this).attr("data-faved", "true");
 
             /////////////////////////////
-            var recipeId = $(this).attr("data-food-id");
+
             var image = $("#" + recipeId + "image").attr("src");
             var title = $("#" + recipeId + "title").text();
             var summary = $("#" + recipeId + "summary").html();
@@ -49,20 +52,25 @@ $(document).ready(function () {
                 recipeId: recipeId
             };
 
-            database.ref("/recipes").push(newRecipe).then((snap)=>{
-                console.log(snap)
-            });
+
+            // adds to firebase
+            database.ref("/recipes").child(recipeId).set(newRecipe);
+            // database.ref("/recipes").push(newRecipe);
+
 
             // console.log("Recipe Added");
 
-
+            // This prevents duplicate cards when re-favoriting of the favorites page
+            $("#" + recipeId + "div").remove();
 
         } else {
             $(this).removeClass("pink");
             $(this).addClass("grey pulse");
             $(this).attr("data-faved", "false");
-            
-            database.ref("/recipes").child(recipeId).remove()
+
+            // deletes from firebase
+            database.ref("/recipes").child(recipeId).remove();
+
         };
     });
 
@@ -70,6 +78,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".ingredients-btn", function () {
         var foodId = $(this).attr("data-food-id");
+        console.log(foodId);
 
         var ingredientsState = $("#" + foodId + "food-ingredients").attr("data-state");
         console.log(ingredientsState);
