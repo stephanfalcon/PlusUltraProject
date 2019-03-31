@@ -18,14 +18,16 @@ $(document).ready(function () {
     $(document).on("click", ".favorite-btn", function () {
 
         var favStatus = $(this).attr("data-faved");
+        var recipeId = $(this).attr("data-food-id");
         console.log(favStatus);
+
         if (favStatus === "false") {
             $(this).removeClass("grey pulse");
             $(this).addClass("pink");
             $(this).attr("data-faved", "true");
 
             /////////////////////////////
-            var recipeId = $(this).attr("data-food-id");
+
             var image = $("#" + recipeId + "image").attr("src");
             var title = $("#" + recipeId + "title").text();
             var summary = $("#" + recipeId + "summary").html();
@@ -49,7 +51,9 @@ $(document).ready(function () {
                 recipeId: recipeId
             };
 
-            database.ref("/recipes").push(newRecipe);
+            // adds to firebase
+            database.ref("/recipes").child(recipeId).set(newRecipe);
+            // database.ref("/recipes").push(newRecipe);
 
             console.log("Recipe Added");
 
@@ -59,6 +63,8 @@ $(document).ready(function () {
             $(this).removeClass("pink");
             $(this).addClass("grey pulse");
             $(this).attr("data-faved", "false");
+            // deletes from firebase
+            database.ref("/recipes").child(recipeId).remove();
         };
     });
 
