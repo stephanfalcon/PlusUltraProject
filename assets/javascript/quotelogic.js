@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var queryURL = "https://healthruwords.p.rapidapi.com/v1/quotes/?t=Motivational&maxR=1&size=medium"
 
-    // AJAX GET request
+    // // AJAX GET request
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -13,9 +13,13 @@ $(document).ready(function () {
             var newQuote = fin[i].media
             $("#quotespace").attr("src", newQuote);
             $("#quotespace").html(newQuote);
+            $("#leftLeaf").attr("src", "./assets/images/leaf-left.png");
+            $("#rightLeaf").attr("src", "./assets/images/leaf-right.png");
 
         };
         console.log(fin);
     });
-    // End of AJAX request
+    // // End of AJAX request
+
+
 });

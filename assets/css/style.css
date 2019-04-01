@@ -49,6 +49,21 @@ nav {
     height: 300px;
 }
 
+/* quote image styluing */
+
+#quotespace {
+    width: 100%;
+}
+
+.round-corners {
+    border-radius: 30px;
+}
+
+.leaf {
+    width: 50%;
+}
+
+
 /* favorite page styling */
 #col-1,
 #col-2 {

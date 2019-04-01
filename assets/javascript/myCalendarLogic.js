@@ -307,14 +307,7 @@ $(document).ready(function () {
         var newStyle = snapshot.val().style;
         console.log(newFilled);
 
-        // newKey.attr("data-filled", newFilled);
-        // newKey.html(newTitle);
-        // newKey.attr("data-food-img", newImage);
-        // newKey.attr("data-food-sum", newSummary);
-        // newKey.attr("data-food-ing", newIng);
-        // newKey.attr("data-food-instr", newInstr);
-        // newKey.attr("data-food-id", newId);
-        // newKey.attr("style", newStyle)
+
 
         newKey.html("");
         newKey.attr("data-food-id", newId);
