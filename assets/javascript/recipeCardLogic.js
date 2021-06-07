@@ -12,12 +12,13 @@ $(document).ready(function () {
     firebase.initializeApp(config);
 
     var database = firebase.database();
-
+    console.log(database.key)
     // Basic favorite button color toggle
 
     $(document).on("click", ".favorite-btn", function () {
 
         var favStatus = $(this).attr("data-faved");
+
         var recipeId = $(this).attr("data-food-id");
         console.log(favStatus);
 
@@ -35,12 +36,12 @@ $(document).ready(function () {
             var instructions = $("#" + recipeId + "instructions").html();
 
 
-            console.log(image);
-            console.log(title);
-            console.log(summary);
-            console.log(ingredients);
-            console.log(instructions);
-            console.log(recipeId);
+            // console.log(image);
+            // console.log(title);
+            // console.log(summary);
+            // console.log(ingredients);
+            // console.log(instructions);
+            // console.log(recipeId);
 
             var newRecipe = {
                 image: image,
@@ -51,11 +52,13 @@ $(document).ready(function () {
                 recipeId: recipeId
             };
 
+
             // adds to firebase
             database.ref("/recipes").child(recipeId).set(newRecipe);
             // database.ref("/recipes").push(newRecipe);
 
-            console.log("Recipe Added");
+
+            // console.log("Recipe Added");
 
             // This prevents duplicate cards when re-favoriting of the favorites page
             $("#" + recipeId + "div").remove();
@@ -64,8 +67,10 @@ $(document).ready(function () {
             $(this).removeClass("pink");
             $(this).addClass("grey pulse");
             $(this).attr("data-faved", "false");
+
             // deletes from firebase
             database.ref("/recipes").child(recipeId).remove();
+
         };
     });
 
